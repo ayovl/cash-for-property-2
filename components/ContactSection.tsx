@@ -54,7 +54,7 @@ export default function ContactSection() {
         <div 
           className="relative min-h-screen flex items-center justify-center overflow-hidden"
           style={{
-            backgroundImage: 'url("https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
+            backgroundImage: 'url("https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -68,25 +68,21 @@ export default function ContactSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="space-y-8"
+                className="space-y-8 text-center lg:text-left" // Adjusted alignment
               >
                 {/* Top Tags */}
-                <div className="flex flex-wrap gap-4 text-sm text-white">
-                  <span>Fast Cash Offers</span>
+                <div className="flex flex-wrap gap-2 text-sm text-white justify-center lg:justify-start">
+                  <span>Fast</span>
                   <span>•</span>
-                  <span>Client First Approach</span>
+                  <span>Fair</span>
                   <span>•</span>
-                  <span>Trustworthy</span>
+                  <span>Reliable</span>
                 </div>
 
                 {/* Main Heading */}
                 <div className="space-y-4">
                   <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                    Fast Cash
-                    <br />
-                    <span className="text-white">— Professional</span>
-                    <br />
-                    <span className="text-white">Client-First</span>
+                    Get Your Fair Cash Offer Today!
                   </h2>
                 </div>
 
@@ -117,7 +113,7 @@ export default function ContactSection() {
               >
                 <div className="bg-white rounded-3xl p-8 shadow-2xl max-w-md w-full">
                   <div className="mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Let's Have a Chat 👋</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Get Your Cash Offer</h3>
                     <p className="text-gray-600">Get your fair cash offer today and close on your timeline.</p>
                   </div>
 
