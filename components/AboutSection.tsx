@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const stats = [
 	{ number: 35, suffix: '+', label: 'Years of Experience', sublabel: 'Since 1988' },
@@ -56,17 +58,14 @@ export default function AboutSection() {
 					className="text-center"
 				>
 					<span className="text-sm font-medium text-gray-600 mb-4 block">• Who we are?</span>
-					<h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 max-w-6xl mx-auto leading-tight">
-						We Are A Team Of{' '}
-						<span className="text-gray-400">Trusted Experts</span> Creating{' '}
-						<span className="text-black">Fast, Reliable,</span> And{' '}
-						<span className="text-black">Hassle-Free</span>{' '}
-						<span className="text-gray-400">Property Solutions.</span> From{' '}
-						<span className="text-gray-400">Initial Contact To Final Settlement,</span> We Work With{' '}
-						<span className="text-black">Purpose And Precision</span>{' '}
-						<span className="text-gray-400">To Bring</span>{' '}
-						<span className="text-black">Your Cash Offer To Life</span>
-					</h2>
+					<p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+						Trusted by property owners since 1988. We provide fast, confidential solutions for selling your property as-is for cash. For over three decades, we've been helping property owners throughout the five boroughs and Nassau County sell their properties quickly, confidentially, and for cash. Our journey began with a simple mission: to provide a fast, hassle-free alternative to the traditional real estate selling process.
+					</p>
+					<Link href="/about-us" passHref>
+						<Button variant="default" size="lg" className="mt-8">
+							Learn More
+						</Button>
+					</Link>
 
 					<div className="flex justify-center space-x-4 mt-12">
 						<div className="w-32 h-20 bg-white rounded-2xl overflow-hidden">
