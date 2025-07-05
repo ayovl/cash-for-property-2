@@ -5,7 +5,7 @@ import { Building2, Phone } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section id="hero-section" className="relative min-h-screen overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 z-0"

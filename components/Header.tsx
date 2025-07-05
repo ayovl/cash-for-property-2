@@ -1,11 +1,34 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById('hero-section');
+      if (heroSection) {
+        const heroSectionBottom = heroSection.offsetHeight;
+        if (window.scrollY > heroSectionBottom) {
+          setIsScrolledPastHero(true);
+        } else {
+          setIsScrolledPastHero(false);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial check in case the page loads already scrolled
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -20,7 +43,7 @@ export default function Header() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 px-4 py-2"
+      className={`fixed top-0 left-0 right-0 z-50 px-4 py-2 ${isScrolledPastHero ? 'header-scrolled' : ''}`}
     >
       <div className="max-w-7xl mx-auto">
         <div className="glass bg-white/10 border border-white/20 rounded-xl px-4 py-2 shadow-xl">
@@ -28,43 +51,43 @@ export default function Header() {
             {/* Logo */}
             <button 
               onClick={() => scrollToSection('home')}
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-2 nav-link-text"
             >
               <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center">
                 <span className="text-black font-bold text-xs">C</span>
               </div>
-              <span className="text-white font-semibold text-sm">Cash for Properties</span>
+              <span className="font-semibold text-sm">Cash for Properties</span>
             </button>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-6">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="text-white/90 hover:text-white transition-colors font-medium text-sm"
+                className="nav-link-text hover:text-white transition-colors font-medium text-sm"
               >
                 HOME
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="text-white/90 hover:text-white transition-colors font-medium text-sm"
+                className="nav-link-text hover:text-white transition-colors font-medium text-sm"
               >
                 ABOUT
               </button>
               <button 
                 onClick={() => scrollToSection('how-it-works')}
-                className="text-white/90 hover:text-white transition-colors font-medium text-sm"
+                className="nav-link-text hover:text-white transition-colors font-medium text-sm"
               >
                 HOW IT WORKS
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className="text-white/90 hover:text-white transition-colors font-medium text-sm"
+                className="nav-link-text hover:text-white transition-colors font-medium text-sm"
               >
                 SERVICES
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="text-white/90 hover:text-white transition-colors font-medium text-sm"
+                className="nav-link-text hover:text-white transition-colors font-medium text-sm"
               >
                 CONTACT
               </button>
@@ -74,9 +97,9 @@ export default function Header() {
             <div className="hidden md:flex items-center space-x-4">
               <a
                 href="tel:1-800-730-1717"
-                className="flex items-center space-x-2 text-white/90 hover:text-white transition-colors"
+                className="flex items-center space-x-2 nav-link-text hover:text-white transition-colors"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4 nav-icon" />
                 <span className="text-sm font-medium">1-800-730-1717</span>
               </a>
               <motion.button
@@ -95,9 +118,9 @@ export default function Header() {
               className="md:hidden p-2"
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6 text-white" />
+                <X className="w-6 h-6 nav-icon" />
               ) : (
-                <Menu className="w-6 h-6 text-white" />
+                <Menu className="w-6 h-6 nav-icon" />
               )}
             </button>
           </div>
@@ -113,40 +136,40 @@ export default function Header() {
               <nav className="flex flex-col space-y-4">
                 <button 
                   onClick={() => scrollToSection('home')}
-                  className="text-white/90 hover:text-white transition-colors font-medium text-sm text-left"
+                  className="nav-link-text hover:text-white transition-colors font-medium text-sm text-left"
                 >
                   HOME
                 </button>
                 <button 
                   onClick={() => scrollToSection('about')}
-                  className="text-white/90 hover:text-white transition-colors font-medium text-sm text-left"
+                  className="nav-link-text hover:text-white transition-colors font-medium text-sm text-left"
                 >
                   ABOUT
                 </button>
                 <button 
                   onClick={() => scrollToSection('how-it-works')}
-                  className="text-white/90 hover:text-white transition-colors font-medium text-sm text-left"
+                  className="nav-link-text hover:text-white transition-colors font-medium text-sm text-left"
                 >
                   HOW IT WORKS
                 </button>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-white/90 hover:text-white transition-colors font-medium text-sm text-left"
+                  className="nav-link-text hover:text-white transition-colors font-medium text-sm text-left"
                 >
                   SERVICES
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="text-white/90 hover:text-white transition-colors font-medium text-sm text-left"
+                  className="nav-link-text hover:text-white transition-colors font-medium text-sm text-left"
                 >
                   CONTACT
                 </button>
                 <div className="pt-4 space-y-3">
                   <a
                     href="tel:1-800-730-1717"
-                    className="flex items-center space-x-2 text-white/90"
+                    className="flex items-center space-x-2 nav-link-text"
                   >
-                    <Phone className="w-4 h-4" />
+                    <Phone className="w-4 h-4 nav-icon" />
                     <span className="text-sm font-medium">1-800-730-1717</span>
                   </a>
                   <button 

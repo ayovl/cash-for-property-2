@@ -96,3 +96,41 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+
+/* Default state for nav links and icons (white) */
+.nav-link-text {
+  color: white; /* Tailwind class: text-white */
+  opacity: 0.9; /* Tailwind class: text-white/90. Applied directly here for simplicity */
+  transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.nav-link-text:hover {
+  opacity: 1.0; /* Tailwind class: hover:text-white */
+}
+
+.nav-icon {
+  color: white; /* Tailwind class: text-white */
+  transition: color 0.3s ease-in-out;
+}
+
+/* Scrolled state for nav links and icons (black) */
+.header-scrolled .nav-link-text {
+  color: black; /* Tailwind class: text-black */
+  opacity: 0.9;
+}
+
+.header-scrolled .nav-link-text:hover {
+  color: black;
+  opacity: 1.0;
+}
+
+.header-scrolled .nav-icon {
+  color: black; /* Tailwind class: text-black */
+}
+
+/* Adjust header background when scrolled */
+.header-scrolled .glass {
+  background-color: rgba(255, 255, 255, 0.8); /* More opaque white */
+  border-color: #e5e7eb; /* Tailwind's gray-200 for a subtle border */
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Tailwind's shadow-md */
+}
