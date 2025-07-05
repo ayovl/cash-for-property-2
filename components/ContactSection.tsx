@@ -182,7 +182,7 @@ export default function ContactSection() {
         </div>
 
         {/* Contact Information Cards */}
-        <div className="py-24 bg-gray-50">
+        <div id="contact-information-section" className="py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -216,11 +216,20 @@ export default function ContactSection() {
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">{info.title}</h3>
                     <div className="space-y-1">
-                      {info.details.map((detail, i) => (
-                        <p key={i} className="text-gray-600 font-light">
-                          {info.title === 'Phone' ? <span className="whitespace-nowrap">{detail}</span> : detail}
-                        </p>
-                      ))}
+                      {info.details.map((detail, i) => {
+                        if (info.title === 'Phone') {
+                          return (
+                            <p key={i} className="text-gray-600 font-light text-base sm:text-lg whitespace-nowrap">
+                              {detail}
+                            </p>
+                          );
+                        }
+                        return (
+                          <p key={i} className="text-gray-600 font-light text-base sm:text-lg">
+                            {detail}
+                          </p>
+                        );
+                      })}
                     </div>
                   </div>
                 </motion.div>
