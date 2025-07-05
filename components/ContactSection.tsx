@@ -94,7 +94,7 @@ export default function ContactSection() {
                 <div className="space-y-6 pt-8">
                   <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-white" />
-                    <span className="text-lg font-medium text-white">1-800-730-1717</span>
+                    <span className="text-lg font-medium text-white whitespace-nowrap">1-800-730-1717</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <MapPin className="w-5 h-5 text-white" />
@@ -217,7 +217,9 @@ export default function ContactSection() {
                     <h3 className="text-xl font-bold text-gray-900 mb-4">{info.title}</h3>
                     <div className="space-y-1">
                       {info.details.map((detail, i) => (
-                        <p key={i} className="text-gray-600 font-light">{detail}</p>
+                        <p key={i} className="text-gray-600 font-light">
+                          {info.title === 'Phone' ? <span className="whitespace-nowrap">{detail}</span> : detail}
+                        </p>
                       ))}
                     </div>
                   </div>
@@ -235,8 +237,17 @@ export default function ContactSection() {
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Location</h3>
               <p className="text-gray-600 mb-8 font-light">Visit us at our Brooklyn office</p>
               <div className="glass bg-white/80 border border-white/30 rounded-3xl p-8 shadow-xl">
-                <div className="aspect-video bg-gray-200 rounded-2xl flex items-center justify-center">
-                  <p className="text-gray-600">Map placeholder - Visit us at our Brooklyn office</p>
+                <div className="aspect-video bg-gray-200 rounded-2xl flex items-center justify-center overflow-hidden">
+                  <iframe
+                    src="https://maps.google.com/maps?q=955%20Lafayette%20Ave.%2C%20Suite%208%2C%20Brooklyn%2C%20NY%2011221&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border:0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Business Location Map"
+                  ></iframe>
                 </div>
               </div>
             </motion.div>
