@@ -46,14 +46,14 @@ function AnimatedCounter({
 
 export default function AboutSection() {
 	return (
-		<section className="pt-12 pb-24 bg-white">
+		<section className="pt-12 pb-12 bg-white">
 			<div className="max-w-7xl mx-auto px-6">
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8 }}
 					viewport={{ once: true }}
-					className="text-center mb-20"
+					className="text-center"
 				>
 					<span className="text-sm font-medium text-gray-600 mb-4 block">• Who we are?</span>
 					<h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 max-w-6xl mx-auto leading-tight">
