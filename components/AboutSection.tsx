@@ -58,15 +58,14 @@ export default function AboutSection() {
 					className="text-center"
 				>
 					<span className="text-sm font-medium text-gray-600 mb-4 block">• Who we are?</span>
-					<p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-						Trusted by property owners since 1988. We provide fast, confidential solutions for selling your property as-is for cash. For over three decades, we've been helping property owners throughout the five boroughs and Nassau County sell their properties quickly, confidentially, and for cash. Our journey began with a simple mission: to provide a fast, hassle-free alternative to the traditional real estate selling process.
-					</p>
+					<h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 max-w-6xl mx-auto leading-tight">
+						Your <span className="text-gray-400">Trusted NYC Partner Since 1988.</span> We Deliver Fast, Confidential, <span className="text-black">As-Is Cash Solutions,</span> Making Your Property Sale <span className="text-gray-400">Simple And Stress-Free.</span>
+					</h2>
 					<Link href="/about-us" passHref>
-						<Button variant="default" size="lg" className="mt-8">
+						<Button variant="default" size="lg" className="mb-12">
 							Learn More
 						</Button>
 					</Link>
-
 					<div className="flex justify-center space-x-4 mt-12">
 						<div className="w-32 h-20 bg-white rounded-2xl overflow-hidden">
 							<img
