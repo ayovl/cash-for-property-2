@@ -53,7 +53,7 @@ export default function StatsSection() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -63,12 +63,12 @@ export default function StatsSection() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="glass bg-white/80 border border-white/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
-                <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+              <div className="glass bg-white/80 border border-white/30 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-shadow h-48 flex flex-col justify-center">
+                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
                   <AnimatedCounter target={stat.number} suffix={stat.suffix} />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">{stat.label}</h3>
-                <p className="text-gray-600 text-sm">{stat.sublabel}</p>
+                <h3 className="text-base lg:text-lg font-semibold text-gray-900 mb-2 leading-tight">{stat.label}</h3>
+                <p className="text-gray-600 text-xs lg:text-sm leading-tight">{stat.sublabel}</p>
               </div>
             </motion.div>
           ))}
