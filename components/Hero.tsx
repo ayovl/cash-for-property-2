@@ -15,7 +15,7 @@ export default function Hero() {
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+        <div className="absolute inset-0"></div>
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20">
@@ -37,9 +37,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
           >
-            Cash for Properties — Your
+            Get Cash For
             <br />
-            <span className="text-gray-200">Partner in</span> Real Estate Expertise
+            <span className="text-gray-200">Your NYC Property</span>
           </motion.h1>
 
           <motion.p
@@ -48,8 +48,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            We buy properties as-is for cash. No repairs, no agents, no hassle.
-            From buying to selling, we create real estate experiences that inspire and endure.
+           We buy properties as-is for cash. No repairs, no agents, no hassle.
           </motion.p>
 
           <motion.div
@@ -63,7 +62,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
               className="bg-white text-black px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-gray-100 transition-colors shadow-2xl"
             >
-              Contact us
+              Get Your Cash Offer
             </motion.button>
             <motion.a
               href="tel:1-800-730-1717"
