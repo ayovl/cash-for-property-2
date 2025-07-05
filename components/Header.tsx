@@ -20,24 +20,24 @@ export default function Header() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
+      className="fixed top-0 left-0 right-0 z-50 px-4 py-2"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="glass bg-white/10 border border-white/20 rounded-2xl px-6 py-3 shadow-2xl">
+        <div className="glass bg-white/10 border border-white/20 rounded-xl px-4 py-2 shadow-xl">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <button 
               onClick={() => scrollToSection('home')}
               className="flex items-center space-x-2"
             >
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-black font-bold text-sm">C</span>
+              <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center">
+                <span className="text-black font-bold text-xs">C</span>
               </div>
-              <span className="text-white font-semibold text-lg">Cash for Properties</span>
+              <span className="text-white font-semibold text-sm">Cash for Properties</span>
             </button>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-6">
               <button 
                 onClick={() => scrollToSection('home')}
                 className="text-white/90 hover:text-white transition-colors font-medium text-sm"

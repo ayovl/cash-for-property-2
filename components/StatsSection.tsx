@@ -38,7 +38,7 @@ function AnimatedCounter({ target, suffix = '', duration = 2000 }: { target: num
 
 export default function StatsSection() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

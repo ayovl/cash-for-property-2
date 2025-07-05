@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, Clock, Shield, Zap } from 'lucide-react';
+import { Phone, Clock, Shield, Zap, Home, Building2 } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -26,7 +26,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-6"
           >
-            <span className="inline-block px-4 py-2 glass bg-white/10 border border-white/20 rounded-full text-sm font-medium text-white">
+            <span className="inline-block px-2 py-1 glass bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white">
               • Trusted Property Buyers Since 1988
             </span>
           </motion.div>
@@ -35,18 +35,26 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg"
           >
-            Get Cash For
-            <br />
-            <span className="text-gray-200">Your NYC Property</span>
+            
+            <span className="block">Get Cash For</span>
+            <span className="block text-white font-extrabold tracking-tight">
+              Your NYC
+              <span className="align-middle inline-flex mx-2" style={{verticalAlign: 'middle'}}>
+                <span className="inline-flex items-center justify-center w-12 h-12 bg-white/20 border border-white/40 rounded-2xl shadow-lg backdrop-blur-md -mt-2">
+                  <Building2 className="w-7 h-7 text-white/90" />
+                </span>
+              </span>
+              Property
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto leading-relaxed font-light"
+            className="text-lg md:text-xl text-white mb-10 max-w-3xl mx-auto leading-relaxed font-light"
           >
            We buy properties as-is for cash. No repairs, no agents, no hassle.
           </motion.p>
@@ -55,12 +63,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-black px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-gray-100 transition-colors shadow-2xl"
+              className="bg-white text-black px-7 py-4 rounded-2xl font-semibold text-base hover:bg-gray-100 transition-colors shadow-xl min-h-[54px] w-[220px] flex items-center justify-center"
             >
               Get Your Cash Offer
             </motion.button>
@@ -68,36 +76,15 @@ export default function Hero() {
               href="tel:1-800-730-1717"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-3 glass bg-white/10 border border-white/20 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/20 transition-colors shadow-xl"
+              className="flex items-center justify-center space-x-2 glass bg-white/10 border border-white/20 text-white px-7 py-4 rounded-2xl font-semibold text-base hover:bg-white/20 transition-colors shadow-xl min-h-[54px] w-[220px]"
             >
-              <Phone className="w-5 h-5" />
-              <span>Call 1-800-730-1717</span>
+              <Phone className="w-4 h-4" />
+              <span>1-800-730-1717</span>
             </motion.a>
           </motion.div>
 
           {/* Features */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
-          >
-            <div className="glass bg-white/10 border border-white/20 rounded-2xl p-6 text-center shadow-xl">
-              <Shield className="w-8 h-8 text-white mx-auto mb-3" />
-              <h3 className="font-semibold text-white mb-2">No Repairs Needed</h3>
-              <p className="text-gray-200 text-sm">Sell your property as-is</p>
-            </div>
-            <div className="glass bg-white/10 border border-white/20 rounded-2xl p-6 text-center shadow-xl">
-              <Zap className="w-8 h-8 text-white mx-auto mb-3" />
-              <h3 className="font-semibold text-white mb-2">No Agent Commissions</h3>
-              <p className="text-gray-200 text-sm">Keep more money in your pocket</p>
-            </div>
-            <div className="glass bg-white/10 border border-white/20 rounded-2xl p-6 text-center shadow-xl">
-              <Clock className="w-8 h-8 text-white mx-auto mb-3" />
-              <h3 className="font-semibold text-white mb-2">Close in Days, Not Months</h3>
-              <p className="text-gray-200 text-sm">Fast cash transactions</p>
-            </div>
-          </motion.div>
+          {/* Features removed as requested */}
         </div>
       </div>
     </section>
