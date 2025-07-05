@@ -18,8 +18,8 @@ export default function Hero() {
         <div className="absolute inset-0"></div>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-1">
-        <div className="text-center mt-12">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-8">
+        <div className="text-center mt-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

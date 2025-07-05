@@ -22,9 +22,8 @@ const testimonials = [
 ];
 
 export default function TestimonialsSection() {
-  return (
-    <section 
-      className="py-24 relative overflow-hidden"
+  return (    <section
+      className="pt-12 pb-24 relative overflow-hidden"
       style={{
         backgroundImage: 'url("https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
         backgroundSize: 'cover',
