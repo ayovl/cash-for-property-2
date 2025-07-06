@@ -86,21 +86,7 @@ export default function ContactSection() {
                   </h2>
                 </div>
 
-                {/* Contact Details */}
-                <div className="space-y-6 pt-8">
-                  <div className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5 text-gray-900" />
-                    <span className="text-lg font-medium text-gray-900">1-800-730-1717</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <MapPin className="w-5 h-5 text-gray-900" />
-                    <span className="text-lg text-gray-900">955 Lafayette Ave., Suite 8, Brooklyn, NY 11221</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Mail className="w-5 h-5 text-gray-900" />
-                    <span className="text-lg text-gray-900">info@cashforpropertiesnyc.com</span>
-                  </div>
-                </div>
+                {/* Contact Details Removed */}
               </motion.div>
 
               {/* Right Side - Contact Form */}
