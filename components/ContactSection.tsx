@@ -200,7 +200,7 @@ export default function ContactSection() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16"> {/* Changed lg:grid-cols-4 to lg:grid-cols-2 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16 justify-items-center"> {/* Changed lg:grid-cols-4 to lg:grid-cols-2 AND Added justify-items-center */}
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={index}
@@ -208,7 +208,7 @@ export default function ContactSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-center h-full" // Added h-full
+                  className="text-center h-full max-w-md" // Added h-full AND max-w-md
                 >
                   <div className="glass bg-white/80 border border-white/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow min-h-full flex flex-col justify-start"> {/* Added min-h-full, flex, flex-col, justify-start */}
                     <div> {/* Wrapper for icon and title */}
