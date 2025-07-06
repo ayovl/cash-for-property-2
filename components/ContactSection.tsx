@@ -210,11 +210,13 @@ export default function ContactSection() {
                   viewport={{ once: true }}
                   className="text-center"
                 >
-                  <div className="glass bg-white/80 border border-white/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
-                    <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <info.icon className="w-8 h-8 text-white" />
-                    </div>
+                  <div className="glass bg-white/80 border border-white/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow h-96 flex flex-col justify-between">
+                    <div> {/* Added a div to group icon and title for better flex behavior */}
+                      <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <info.icon className="w-8 h-8 text-white" />
+                      </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">{info.title}</h3>
+                    </div>
                     <div className="space-y-1">
                       {info.details.map((detail, i) => (
                         <p key={i} className="text-gray-600 font-light">{detail}</p>
