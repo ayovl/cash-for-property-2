@@ -201,5 +201,6 @@ export default function Header() {
         </div>
       </div>
     </motion.header>
+    </>
   );
 }
