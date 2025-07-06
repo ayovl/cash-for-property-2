@@ -210,8 +210,8 @@ export default function ContactSection() {
                   viewport={{ once: true }}
                   className="text-center h-full" // Added h-full
                 >
-                  <div className="glass bg-white/80 border border-white/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow min-h-full flex flex-col justify-start"> {/* Changed justify-between to justify-start */}
-                    <div> {/* Added a div to group icon and title for better flex behavior */}
+                  <div className="glass bg-white/80 border border-white/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow min-h-full flex flex-col justify-start"> {/* Added min-h-full, flex, flex-col, justify-start */}
+                    <div> {/* Wrapper for icon and title */}
                       <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <info.icon className="w-8 h-8 text-white" />
                       </div>
