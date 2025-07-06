@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 const statsData = [
   { number: 1500, suffix: '+', label: 'Properties Purchased', sublabel: 'Since 1988' },
@@ -22,12 +23,9 @@ function AnimatedCounter({ target, suffix = '', duration = 2000, start }: Animat
 
   useEffect(() => {
     if (!start) {
-      // Optionally reset count if start becomes false and you want to show 0 or an initial state
-      // setCount(0); // For this use case (once: true), this might not be strictly needed.
       return;
     }
 
-    // Target is 0, set count to 0 and don't animate
     if (target === 0) {
       setCount(0);
       return;
@@ -36,9 +34,6 @@ function AnimatedCounter({ target, suffix = '', duration = 2000, start }: Animat
     let startTime: number | null = null;
     let animationFrame: number;
 
-    // Reset count to 0 when animation is about to start.
-    // This ensures that if the component was somehow showing a different number,
-    // the animation correctly starts from 0.
     setCount(0);
 
     const animate = (timestamp: number) => {
@@ -64,56 +59,123 @@ function AnimatedCounter({ target, suffix = '', duration = 2000, start }: Animat
   return <span>{count}{suffix}</span>;
 }
 
-interface StatCardProps {
-  stat: typeof statsData[0];
-  index: number;
-}
-
-function StatCard({ stat, index }: StatCardProps) {
+export default function StatsSection() {
   const [isInView, setIsInView] = useState(false);
 
   return (
-    <motion.div
-      key={stat.label} // Using a more stable key if available, index is fallback
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      onViewportEnter={() => setIsInView(true)}
-      transition={{ duration: 0.8, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="text-center"
-    >
-      <div className="glass bg-white/80 border border-white/30 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-shadow h-48 flex flex-col justify-center">
-        <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
-          <AnimatedCounter target={stat.number} suffix={stat.suffix} start={isInView} duration={2000} />
-        </div>
-        <h3 className="text-base lg:text-lg font-semibold text-gray-900 mb-2 leading-tight">{stat.label}</h3>
-        <p className="text-gray-600 text-xs lg:text-sm leading-tight">{stat.sublabel}</p>
-      </div>
-    </motion.div>
-  );
-}
-
-export default function StatsSection() {
-  return (
     <section className="pt-16 pb-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
-          <span className="text-sm font-medium text-gray-600 mb-4 block">• Our Achievements</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our numbers speak for themselves
-          </h2>
-        </motion.div>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left side - Image with overlay cards */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src="/hero.png"
+                alt="Beautiful house with green lawn"
+                width={600}
+                height={500}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            
+            {/* Top-left card - Properties Purchased - extends beyond image */}
+            <div className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-lg p-4 max-w-[200px] z-10">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span className="text-sm text-gray-600">Properties Purchased</span>
+              </div>
+              <div className="text-2xl font-bold text-gray-900">
+                1500+
+              </div>
+              <div className="text-sm text-gray-500">Since 1988</div>
+            </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {statsData.map((stat, index) => (
-            <StatCard key={stat.label || index} stat={stat} index={index} />
-          ))}
+            {/* Bottom-right card - Average Closing Time - extends beyond image */}
+            <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg p-4 max-w-[200px] z-10">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-4 h-4 text-blue-500">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" fill="none"/>
+                  </svg>
+                </div>
+                <span className="text-sm text-gray-600">Average Closing Time</span>
+              </div>
+              <div className="text-2xl font-bold text-gray-900">
+                14 Days
+              </div>
+              <div className="text-sm text-gray-500">From offer to cash</div>
+            </div>
+          </motion.div>
+
+          {/* Right side - Content and Stats */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            onViewportEnter={() => setIsInView(true)}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div>
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                Our numbers speak for themselves
+              </h2>
+            </div>
+
+            <div className="flex gap-12 flex-wrap lg:flex-nowrap">
+              {/* Properties Purchased */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-left flex-shrink-0"
+              >
+                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">
+                  <AnimatedCounter target={1500} suffix="+" start={isInView} duration={2000} />
+                </div>
+                <h3 className="text-sm lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Properties Purchased</h3>
+                <p className="text-gray-600 text-xs leading-tight">Since 1988</p>
+              </motion.div>
+
+              {/* Average Closing Time */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="text-left flex-shrink-0"
+              >
+                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">
+                  <AnimatedCounter target={14} suffix=" Days" start={isInView} duration={2000} />
+                </div>
+                <h3 className="text-sm lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Average Closing Time</h3>
+                <p className="text-gray-600 text-xs leading-tight">From offer to cash</p>
+              </motion.div>
+
+              {/* Client Satisfaction */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                viewport={{ once: true }}
+                className="text-left flex-shrink-0"
+              >
+                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">
+                  <AnimatedCounter target={98} suffix="%" start={isInView} duration={2000} />
+                </div>
+                <h3 className="text-sm lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Client Satisfaction</h3>
+                <p className="text-gray-600 text-xs leading-tight">Recommend our service</p>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
