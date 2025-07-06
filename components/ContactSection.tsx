@@ -72,14 +72,7 @@ export default function ContactSection() {
                 viewport={{ once: true }}
                 className="text-center lg:text-left" // Adjusted: Removed space-y-8, will rely on tag styling for spacing
               >
-                {/* Top Tags */}
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 justify-center lg:justify-start">
-                  <span className="px-4 py-2 rounded-full bg-gray-100 text-gray-700 text-xs font-medium tracking-wider">Fast</span>
-                  <span className="text-gray-500">•</span>
-                  <span className="px-4 py-2 rounded-full bg-gray-100 text-gray-700 text-xs font-medium tracking-wider">Fair</span>
-                  <span className="text-gray-500">•</span>
-                  <span className="px-4 py-2 rounded-full bg-gray-100 text-gray-700 text-xs font-medium tracking-wider">Reliable</span>
-                </div>
+                {/* Top Tags Removed */}
                 {/* Main Heading Removed from here */}
                 {/* Contact Details Removed */}
               </motion.div>
