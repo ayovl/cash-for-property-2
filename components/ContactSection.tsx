@@ -3,6 +3,14 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Label } from '@/components/ui/label'; // Assuming this path
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'; // Assuming this path
 
 const contactInfo = [
   {
@@ -33,7 +41,8 @@ export default function ContactSection() {
     email: '',
     phone: '',
     propertyAddress: '',
-    bestTimeToContact: '',
+    contactDay: '',
+    contactTime: '',
     message: ''
   });
 
@@ -74,7 +83,7 @@ export default function ContactSection() {
                 viewport={{ once: true }}
                 className="" // Removed lg:ml-auto
               >
-                <div className="bg-white rounded-3xl p-8 shadow-2xl max-w-2xl w-full"> {/* Changed max-w-lg to max-w-2xl */}
+                <div className="bg-white rounded-3xl p-8 shadow-2xl max-w-4xl w-full"> {/* Changed max-w-2xl to max-w-4xl */}
                   {/* Form Title (Moved Main Heading Here) */}
                   <div className="mb-8 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
@@ -82,68 +91,122 @@ export default function ContactSection() {
                     </h2>
                     <p className="text-gray-600 text-base mt-2">Get your fair cash offer today and close on your timeline.</p>
                   </div>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Full Name"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
-                        required
-                      />
-                    </div>
+                  <form onSubmit={handleSubmit} className="space-y-6"> {/* Adjusted overall form spacing if needed */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
+                      {/* Name */}
+                      <div>
+                        <Label htmlFor="name" className="sr-only">Full Name</Label> {/* Or visible label if preferred */}
+                        <input
+                          id="name"
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="Full Name"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
+                          required
+                        />
+                      </div>
 
-                    <div>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Email Address"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
-                        required
-                      />
-                    </div>
+                      {/* Email Address */}
+                      <div>
+                        <Label htmlFor="email" className="sr-only">Email Address</Label>
+                        <input
+                          id="email"
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="Email Address"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
+                          required
+                        />
+                      </div>
 
-                    <div>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="Phone Number"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
-                        required
-                      />
-                    </div>
+                      {/* Phone Number */}
+                      <div>
+                        <Label htmlFor="phone" className="sr-only">Phone Number</Label>
+                        <input
+                          id="phone"
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          placeholder="Phone Number"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
+                          required
+                        />
+                      </div>
 
-                    <div>
-                      <input
-                        type="text"
-                        name="propertyAddress"
-                        value={formData.propertyAddress}
-                        onChange={handleChange}
-                        placeholder="Property Address"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
-                        required
-                      />
-                    </div>
+                      {/* Property Address */}
+                      <div>
+                        <Label htmlFor="propertyAddress" className="sr-only">Property Address</Label>
+                        <input
+                          id="propertyAddress"
+                          type="text"
+                          name="propertyAddress"
+                          value={formData.propertyAddress}
+                          onChange={handleChange}
+                          placeholder="Property Address"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
+                          required
+                        />
+                      </div>
 
-                    <div>
-                      <input
-                        type="text"
-                        name="bestTimeToContact"
-                        value={formData.bestTimeToContact}
-                        onChange={handleChange}
-                        placeholder="Best Time to Contact You"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
-                      />
-                    </div>
+                      {/* Best Day to Contact */}
+                      <div className="space-y-2">
+                        <Label htmlFor="contactDay">Best Day to Contact</Label>
+                        <Select
+                          name="contactDay" // Keep name for potential non-JS submission, though JS handles it
+                          value={formData.contactDay}
+                          onValueChange={(value) => setFormData(prev => ({ ...prev, contactDay: value }))}
+                        >
+                          <SelectTrigger id="contactDay" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50">
+                            <SelectValue placeholder="Select a day" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="Monday">Monday</SelectItem>
+                            <SelectItem value="Tuesday">Tuesday</SelectItem>
+                            <SelectItem value="Wednesday">Wednesday</SelectItem>
+                            <SelectItem value="Thursday">Thursday</SelectItem>
+                            <SelectItem value="Friday">Friday</SelectItem>
+                            <SelectItem value="Saturday">Saturday</SelectItem>
+                            <SelectItem value="Sunday">Sunday</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
 
+                      {/* Best Time to Contact */}
+                      <div className="space-y-2">
+                        <Label htmlFor="contactTime">Best Time to Contact</Label>
+                        <Select
+                          name="contactTime"
+                          value={formData.contactTime}
+                          onValueChange={(value) => setFormData(prev => ({ ...prev, contactTime: value }))}
+                        >
+                          <SelectTrigger id="contactTime" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50">
+                            <SelectValue placeholder="Select a time slot" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="9am-10am">9:00 AM - 10:00 AM</SelectItem>
+                            <SelectItem value="10am-11am">10:00 AM - 11:00 AM</SelectItem>
+                            <SelectItem value="11am-12pm">11:00 AM - 12:00 PM</SelectItem>
+                            <SelectItem value="12pm-1pm">12:00 PM - 1:00 PM</SelectItem>
+                            <SelectItem value="1pm-2pm">1:00 PM - 2:00 PM</SelectItem>
+                            <SelectItem value="2pm-3pm">2:00 PM - 3:00 PM</SelectItem>
+                            <SelectItem value="3pm-4pm">3:00 PM - 4:00 PM</SelectItem>
+                            <SelectItem value="4pm-5pm">4:00 PM - 5:00 PM</SelectItem>
+                            <SelectItem value="5pm-6pm">5:00 PM - 6:00 PM</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div> {/* End of grid div */}
+
+                    {/* Message Textarea - Full width below the grid */}
                     <div>
+                      <Label htmlFor="message" className="sr-only">How can we help you?</Label>
                       <textarea
+                        id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
