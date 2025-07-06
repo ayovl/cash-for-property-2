@@ -144,12 +144,12 @@ export default function Header() {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ type: "tween", duration: 0.3, ease: "easeOut" }} // Changed ease to "easeOut"
+              initial={{ opacity: 0, maxHeight: 0 }} // Changed to maxHeight
+              animate={{ opacity: 1, maxHeight: '500px' }} // Changed to maxHeight: '500px'
+              exit={{ opacity: 0, maxHeight: 0 }} // Changed to maxHeight
+              transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
               className="md:hidden mt-4 pt-4 border-t border-white/20 overflow-hidden"
-              layout // Added layout prop
+              layout
             >
               <nav className="flex flex-col space-y-4">
                 <button 
