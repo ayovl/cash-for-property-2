@@ -59,7 +59,6 @@ export default function ContactSection() {
             backgroundPosition: 'center',
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/10 to-black/20"></div>
           
           <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -72,7 +71,7 @@ export default function ContactSection() {
                 className="space-y-8 text-center lg:text-left" // Adjusted alignment
               >
                 {/* Top Tags */}
-                <div className="flex flex-wrap gap-2 text-sm text-white justify-center lg:justify-start">
+                <div className="flex flex-wrap gap-2 text-sm text-gray-900 justify-center lg:justify-start">
                   <span>Fast</span>
                   <span>•</span>
                   <span>Fair</span>
@@ -82,7 +81,7 @@ export default function ContactSection() {
 
                 {/* Main Heading */}
                 <div className="space-y-4">
-                  <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                  <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
                     Get Your Fair Cash Offer Today!
                   </h2>
                 </div>
@@ -90,16 +89,16 @@ export default function ContactSection() {
                 {/* Contact Details */}
                 <div className="space-y-6 pt-8">
                   <div className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5 text-white" />
-                    <span className="text-lg font-medium text-white">1-800-730-1717</span>
+                    <Phone className="w-5 h-5 text-gray-900" />
+                    <span className="text-lg font-medium text-gray-900">1-800-730-1717</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <MapPin className="w-5 h-5 text-white" />
-                    <span className="text-lg text-white">955 Lafayette Ave., Suite 8, Brooklyn, NY 11221</span>
+                    <MapPin className="w-5 h-5 text-gray-900" />
+                    <span className="text-lg text-gray-900">955 Lafayette Ave., Suite 8, Brooklyn, NY 11221</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Mail className="w-5 h-5 text-white" />
-                    <span className="text-lg text-white">info@cashforpropertiesnyc.com</span>
+                    <Mail className="w-5 h-5 text-gray-900" />
+                    <span className="text-lg text-gray-900">info@cashforpropertiesnyc.com</span>
                   </div>
                 </div>
               </motion.div>
