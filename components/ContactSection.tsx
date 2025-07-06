@@ -63,31 +63,20 @@ export default function ContactSection() {
         >
           
           <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              {/* Left Side - Tags Only */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="text-center lg:text-left" // Adjusted: Removed space-y-8, will rely on tag styling for spacing
-              >
-                {/* Top Tags Removed */}
-                {/* Main Heading Removed from here */}
-                {/* Contact Details Removed */}
-              </motion.div>
+            <div className="w-full flex justify-center"> {/* Changed from grid to flex justify-center */}
+              {/* Left Side - Tags Only - This entire motion.div is removed */}
 
-              {/* Right Side - Contact Form */}
+              {/* Right Side - Contact Form - Now the only child, will be centered */}
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                initial={{ opacity: 0, y: 50 }} // Adjusted initial y for a slightly different entry
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }} // delay can be removed if it's the only main element
                 viewport={{ once: true }}
-                className="lg:ml-auto"
+                className="" // Removed lg:ml-auto
               >
-                <div className="bg-white rounded-3xl p-8 shadow-2xl max-w-md w-full">
+                <div className="bg-white rounded-3xl p-8 shadow-2xl max-w-lg w-full"> {/* Changed max-w-md to max-w-lg */}
                   {/* Form Title (Moved Main Heading Here) */}
-                  <div className="mb-8 text-center"> {/* Added text-center for the title within the form */}
+                  <div className="mb-8 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
                       Get Your Fair Cash Offer Today!
                     </h2>
