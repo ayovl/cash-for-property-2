@@ -181,9 +181,8 @@ export default function ContactSection() {
           </div>
         </div>
 
-        {/* Contact Information Cards */}
         <div id="contact-information-section" className="py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-32">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -200,7 +199,7 @@ export default function ContactSection() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16"> {/* Reverted: Removed justify-items-center */}
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={index}
@@ -208,14 +207,15 @@ export default function ContactSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-center"
+                  className="text-center h-full" // Reverted: Removed max-w-md
                 >
-                  <div className="glass bg-white/80 border border-white/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
-                    <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <info.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">{info.title}</h3>
-                    <div className="space-y-2"> {/* Changed from space-y-1 to space-y-2 */}
+                  <div className="glass bg-white/80 border border-white/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow min-h-full flex flex-col justify-start"> {/* Added min-h-full, flex, flex-col, justify-start */}
+                    <div> {/* Wrapper for icon and title */}
+                      <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <info.icon className="w-8 h-8 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">{info.title}</h3>
+                    <div className="space-y-2">
                       {info.details.map((detail, i) => {
                         if (info.title === 'Phone') {
                           return (
