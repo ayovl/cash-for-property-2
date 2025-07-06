@@ -127,10 +127,3 @@
 .header-scrolled .nav-icon {
   color: black; /* Tailwind class: text-black */
 }
-
-/* Adjust header background when scrolled */
-.header-scrolled .glass {
-  background-color: rgba(255, 255, 255, 0.8); /* More opaque white */
-  border-color: #e5e7eb; /* Tailwind's gray-200 for a subtle border */
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Tailwind's shadow-md */
-}

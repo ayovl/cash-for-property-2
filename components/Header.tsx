@@ -145,11 +145,11 @@ export default function Header() {
           {isMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: '95vh' }} // Changed height to 95vh
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4 pt-4 border-t border-white/20"
+              className="md:hidden mt-4 pt-4 border-t border-white/20 overflow-y-auto" // Added overflow-y-auto
             >
-              <nav className="flex flex-col space-y-4">
+              <nav className="flex flex-col space-y-4 pb-4"> {/* Added pb-4 for bottom padding within scroll */}
                 <button 
                   onClick={() => scrollToSection('home')}
                   className="nav-link-text hover:text-white transition-colors font-medium text-sm text-left"
