@@ -94,7 +94,7 @@ export default function ContactSection() {
                 <div className="space-y-6 pt-8">
                   <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-white" />
-                    <span className="text-lg font-medium text-white">1-800-730-1717</span>
+                    <span className="text-lg font-medium text-white whitespace-nowrap">1-800-730-1717</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <MapPin className="w-5 h-5 text-white" />
@@ -182,7 +182,7 @@ export default function ContactSection() {
         </div>
 
         {/* Contact Information Cards */}
-        <div className="py-24 bg-gray-50">
+        <div id="contact-information-section" className="py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -215,10 +215,21 @@ export default function ContactSection() {
                       <info.icon className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">{info.title}</h3>
-                    <div className="space-y-1">
-                      {info.details.map((detail, i) => (
-                        <p key={i} className="text-gray-600 font-light">{detail}</p>
-                      ))}
+                    <div className="space-y-2"> {/* Changed from space-y-1 to space-y-2 */}
+                      {info.details.map((detail, i) => {
+                        if (info.title === 'Phone') {
+                          return (
+                            <p key={i} className="text-gray-600 font-light text-base sm:text-lg">
+                              <span style={{ whiteSpace: 'nowrap' }}>{detail}</span>
+                            </p>
+                          );
+                        }
+                        return (
+                          <p key={i} className="text-gray-600 font-light text-base sm:text-lg">
+                            {detail}
+                          </p>
+                        );
+                      })}
                     </div>
                   </div>
                 </motion.div>
@@ -234,9 +245,18 @@ export default function ContactSection() {
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Location</h3>
               <p className="text-gray-600 mb-8 font-light">Visit us at our Brooklyn office</p>
-              <div className="glass bg-white/80 border border-white/30 rounded-3xl p-8 shadow-xl">
-                <div className="aspect-video bg-gray-200 rounded-2xl flex items-center justify-center">
-                  <p className="text-gray-600">Map placeholder - Visit us at our Brooklyn office</p>
+              <div className="glass bg-white/80 border border-white/30 rounded-3xl p-2 shadow-xl"> {/* Diagnostic: Changed to p-2 */}
+                <div className="aspect-video bg-gray-200 rounded-2xl flex items-center justify-center overflow-hidden">
+                  <iframe
+                    src="https://maps.google.com/maps?q=955%20Lafayette%20Ave.%2C%20Suite%208%2C%20Brooklyn%2C%20NY%2011221&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border:0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Business Location Map"
+                  ></iframe>
                 </div>
               </div>
             </motion.div>
