@@ -83,7 +83,7 @@ export default function ContactSection() {
                 viewport={{ once: true }}
                 className="" // Removed lg:ml-auto
               >
-                <div className="bg-white rounded-3xl p-8 shadow-2xl max-w-4xl w-full"> {/* Changed max-w-2xl to max-w-4xl */}
+                <div className="bg-white rounded-3xl p-8 shadow-2xl max-w-5xl w-full"> {/* Changed max-w-4xl to max-w-5xl */}
                   {/* Form Title (Moved Main Heading Here) */}
                   <div className="mb-8 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
