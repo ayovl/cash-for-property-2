@@ -128,61 +128,53 @@ export default function Header() {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, y: "100%" }} // Animate from bottom or a slide-in effect
-              animate={{ opacity: 1, y: "0%" }}
-              exit={{ opacity: 0, y: "100%" }}
-              transition={{ type: "tween", duration: 0.3 }}
-              // The menu itself is part of the scrollable header's content flow initially
-              // On mobile, when open, it needs to behave like a full screen overlay.
-              // The parent <motion.header> is z-50.
-              // This div is inside .glass.
-              // Let's make this div itself fixed when open, to overlay everything else.
-              className="md:hidden fixed inset-x-0 bottom-0 h-[97vh] bg-white z-40 shadow-xl overflow-y-auto p-6 pt-24"
-              // pt-24 is a guess for padding top to clear the header bar. THIS WILL NEED TESTING & ADJUSTMENT.
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden mt-4 pt-4 border-t border-white/20"
             >
-              <nav className="flex flex-col space-y-5">
-                {/* Links should be black on white bg */}
+              <nav className="flex flex-col space-y-4">
                 <button 
                   onClick={() => scrollToSection('home')}
-                  className="text-black hover:text-gray-700 transition-colors font-medium text-lg text-left"
+                  className="nav-link-text hover:text-white transition-colors font-medium text-sm text-left"
                 >
                   HOME
                 </button>
                 <button 
                   onClick={() => scrollToSection('about')}
-                  className="text-black hover:text-gray-700 transition-colors font-medium text-lg text-left"
+                  className="nav-link-text hover:text-white transition-colors font-medium text-sm text-left"
                 >
                   ABOUT
                 </button>
                 <button 
                   onClick={() => scrollToSection('how-it-works')}
-                  className="text-black hover:text-gray-700 transition-colors font-medium text-lg text-left"
+                  className="nav-link-text hover:text-white transition-colors font-medium text-sm text-left"
                 >
                   HOW IT WORKS
                 </button>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-black hover:text-gray-700 transition-colors font-medium text-lg text-left"
+                  className="nav-link-text hover:text-white transition-colors font-medium text-sm text-left"
                 >
                   SERVICES
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="text-black hover:text-gray-700 transition-colors font-medium text-lg text-left"
+                  className="nav-link-text hover:text-white transition-colors font-medium text-sm text-left"
                 >
                   CONTACT
                 </button>
-                <div className="pt-6 space-y-4 border-t border-gray-200 mt-4">
+                <div className="pt-4 space-y-3">
                   <a
                     href="tel:1-800-730-1717"
-                    className="flex items-center space-x-2 text-black hover:text-gray-700"
+                    className="flex items-center space-x-2 nav-link-text"
                   >
-                    <Phone className="w-5 h-5" />
-                    <span className="text-lg font-medium">1-800-730-1717</span>
+                    <Phone className="w-4 h-4 nav-icon" />
+                    <span className="text-sm font-medium">1-800-730-1717</span>
                   </a>
                   <button 
                     onClick={() => scrollToSection('contact')}
-                    className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium text-lg hover:bg-blue-700 transition-colors"
+                    className="w-full bg-white text-black py-2.5 rounded-xl font-medium text-sm"
                   >
                     Get Cash Offer
                   </button>
