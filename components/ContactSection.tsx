@@ -200,7 +200,7 @@ export default function ContactSection() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16"> {/* Changed lg:grid-cols-4 to lg:grid-cols-2 */}
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={index}
