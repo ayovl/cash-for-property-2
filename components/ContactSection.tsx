@@ -183,7 +183,7 @@ export default function ContactSection() {
 
         {/* Contact Information Cards */}
         <div className="py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-16"> {/* Changed px-6 to px-16 */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
