@@ -219,7 +219,7 @@ export default function ContactSection() {
                     </div>
                     <div className="space-y-1">
                       {info.details.map((detail, i) => (
-                        <p key={i} className="text-gray-600 font-light">{detail}</p>
+                        <p key={i} className="text-gray-600 font-light text-center">{detail}</p> {/* Added text-center */}
                       ))}
                     </div>
                   </div>
