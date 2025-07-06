@@ -83,7 +83,7 @@ export default function ContactSection() {
                 viewport={{ once: true }}
                 className="" // Removed lg:ml-auto
               >
-                <div className="bg-white rounded-3xl p-8 shadow-2xl max-w-5xl w-full"> {/* Changed max-w-4xl to max-w-5xl */}
+                <div className="bg-white rounded-3xl p-8 shadow-2xl max-w-6xl w-full"> {/* Changed max-w-5xl to max-w-6xl */}
                   {/* Form Title (Moved Main Heading Here) */}
                   <div className="mb-8 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
@@ -235,6 +235,7 @@ export default function ContactSection() {
         <div className="py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6">
             <motion.div
+              id="contact-details-area" // Added ID here
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}

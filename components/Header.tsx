@@ -63,7 +63,7 @@ export default function Header() {
                 SERVICES
               </button>
               <button 
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('contact-details-area')}
                 className="text-white/90 hover:text-white transition-colors font-medium text-sm"
               >
                 CONTACT
@@ -80,7 +80,7 @@ export default function Header() {
                 <span className="text-sm font-medium">1-800-730-1717</span>
               </a>
               <motion.button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('cash-offer-form')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-black px-6 py-2.5 rounded-xl hover:bg-gray-100 transition-colors font-medium text-sm"
@@ -136,7 +136,7 @@ export default function Header() {
                   SERVICES
                 </button>
                 <button 
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => scrollToSection('contact-details-area')}
                   className="text-white/90 hover:text-white transition-colors font-medium text-sm text-left"
                 >
                   CONTACT
@@ -150,7 +150,7 @@ export default function Header() {
                     <span className="text-sm font-medium">1-800-730-1717</span>
                   </a>
                   <button 
-                    onClick={() => scrollToSection('contact')}
+                    onClick={() => scrollToSection('cash-offer-form')}
                     className="w-full bg-white text-black py-2.5 rounded-xl font-medium text-sm"
                   >
                     Get Cash Offer
