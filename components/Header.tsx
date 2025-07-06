@@ -145,11 +145,11 @@ export default function Header() {
           {isMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: '95vh' }} // Changed height to 95vh
+              animate={{ opacity: 1, height: 'auto' }} // Reverted height to 'auto'
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4 pt-4 border-t border-white/20 overflow-y-auto" // Added overflow-y-auto
+              className="md:hidden mt-4 pt-4 border-t border-white/20" // Removed overflow-y-auto
             >
-              <nav className="flex flex-col space-y-4 pb-4"> {/* Added pb-4 for bottom padding within scroll */}
+              <nav className="flex flex-col space-y-4"> {/* Removed pb-4 */}
                 <button 
                   onClick={() => scrollToSection('home')}
                   className="nav-link-text hover:text-white transition-colors font-medium text-sm text-left"
@@ -180,21 +180,23 @@ export default function Header() {
                 >
                   CONTACT
                 </button>
-                <div className="pt-4 space-y-3">
-                  <a
-                    href="tel:1-800-730-1717"
-                    className="flex items-center space-x-2 nav-link-text"
-                  >
-                    <Phone className="w-4 h-4 nav-icon" />
-                    <span className="text-sm font-medium">1-800-730-1717</span>
-                  </a>
-                  <button 
-                    onClick={() => scrollToSection('contact')}
-                    className="w-full bg-white text-black py-2.5 rounded-xl font-medium text-sm"
-                  >
-                    Get Cash Offer
-                  </button>
-                </div>
+                {isScrolledPastHero && (
+                  <div className="pt-4 space-y-3 border-t border-white/20 mt-4"> {/* Added border-t and mt-4 for separation */}
+                    <a
+                      href="tel:1-800-730-1717"
+                      className="flex items-center space-x-2 nav-link-text"
+                    >
+                      <Phone className="w-4 h-4 nav-icon" />
+                      <span className="text-sm font-medium">1-800-730-1717</span>
+                    </a>
+                    <button
+                      onClick={() => scrollToSection('contact')}
+                      className="w-full bg-white text-black py-2.5 rounded-xl font-medium text-sm"
+                    >
+                      Get Cash Offer
+                    </button>
+                  </div>
+                )}
               </nav>
             </motion.div>
           )}
