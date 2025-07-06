@@ -61,13 +61,15 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-black px-4 py-2.5 rounded-lg font-semibold text-xs hover:bg-gray-100 transition-colors shadow-lg min-h-[40px] w-[150px] flex items-center justify-center"
-            >
-              Get Your Cash Offer
-            </motion.button>
+            <a href="#cash-offer-form">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-black px-4 py-2.5 rounded-lg font-semibold text-xs hover:bg-gray-100 transition-colors shadow-lg min-h-[40px] w-[150px] flex items-center justify-center"
+              >
+                Get Your Cash Offer
+              </motion.button>
+            </a>
             <motion.a
               href="tel:1-800-730-1717"
               whileHover={{ scale: 1.05 }}

@@ -51,7 +51,7 @@ export default function ContactSection() {
 
   return (
     <>
-      <section className="py-0">
+      <section className="py-0" id="cash-offer-form">
         {/* Hero Contact Section */}
         <div 
           className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -64,30 +64,23 @@ export default function ContactSection() {
           
           <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              {/* Left Side - Heading and Contact Info */}
+              {/* Left Side - Tags Only */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="space-y-8 text-center lg:text-left" // Adjusted alignment
+                className="text-center lg:text-left" // Adjusted: Removed space-y-8, will rely on tag styling for spacing
               >
                 {/* Top Tags */}
-                <div className="flex flex-wrap gap-2 text-sm text-gray-900 justify-center lg:justify-start">
-                  <span>Fast</span>
-                  <span>•</span>
-                  <span>Fair</span>
-                  <span>•</span>
-                  <span>Reliable</span>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 justify-center lg:justify-start">
+                  <span className="px-4 py-2 rounded-full bg-gray-100 text-gray-700 text-xs font-medium tracking-wider">Fast</span>
+                  <span className="text-gray-500">•</span>
+                  <span className="px-4 py-2 rounded-full bg-gray-100 text-gray-700 text-xs font-medium tracking-wider">Fair</span>
+                  <span className="text-gray-500">•</span>
+                  <span className="px-4 py-2 rounded-full bg-gray-100 text-gray-700 text-xs font-medium tracking-wider">Reliable</span>
                 </div>
-
-                {/* Main Heading */}
-                <div className="space-y-4">
-                  <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
-                    Get Your Fair Cash Offer Today!
-                  </h2>
-                </div>
-
+                {/* Main Heading Removed from here */}
                 {/* Contact Details Removed */}
               </motion.div>
 
@@ -100,7 +93,12 @@ export default function ContactSection() {
                 className="lg:ml-auto"
               >
                 <div className="bg-white rounded-3xl p-8 shadow-2xl max-w-md w-full">
-                  {/* Form Title and Description Removed */}
+                  {/* Form Title (Moved Main Heading Here) */}
+                  <div className="mb-8 text-center"> {/* Added text-center for the title within the form */}
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                      Get Your Fair Cash Offer Today!
+                    </h2>
+                  </div>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                       <input
