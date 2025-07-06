@@ -145,11 +145,12 @@ export default function Header() {
           {isMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }} // Reverted height to 'auto'
+              animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4 pt-4 border-t border-white/20" // Removed overflow-y-auto
+              transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }} // Added explicit transition
+              className="md:hidden mt-4 pt-4 border-t border-white/20 overflow-hidden" // Added overflow-hidden
             >
-              <nav className="flex flex-col space-y-4"> {/* Removed pb-4 */}
+              <nav className="flex flex-col space-y-4">
                 <button 
                   onClick={() => scrollToSection('home')}
                   className="nav-link-text hover:text-white transition-colors font-medium text-sm text-left"
