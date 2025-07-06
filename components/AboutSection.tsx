@@ -61,11 +61,7 @@ export default function AboutSection() {
 					<h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 max-w-6xl mx-auto leading-tight">
 						Your <span className="text-gray-400">Trusted NYC Partner Since 1988.</span> We Deliver Fast, Confidential, <span className="text-black">As-Is Cash Solutions,</span> Making Your Property Sale <span className="text-gray-400">Simple And Stress-Free.</span>
 					</h2>
-					<Link href="/about-us" passHref>
-						<Button variant="default" size="lg" className="mb-12">
-							Learn More
-						</Button>
-					</Link>
+
 					<div className="flex justify-center space-x-4 mt-12">
 						<div className="w-32 h-20 bg-white rounded-2xl overflow-hidden">
 							<img
@@ -89,6 +85,11 @@ export default function AboutSection() {
 							/>
 						</div>
 					</div>
+					<Link href="/about-us" passHref>
+						<Button variant="link" size="sm" className="mt-8 text-gray-600 hover:text-gray-900">
+							Learn More
+						</Button>
+					</Link>
 				</motion.div>
 			</div>
 		</section>
