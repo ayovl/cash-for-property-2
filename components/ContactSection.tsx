@@ -219,8 +219,8 @@ export default function ContactSection() {
                       {info.details.map((detail, i) => {
                         if (info.title === 'Phone') {
                           return (
-                            <p key={i} className="text-gray-600 font-light text-base sm:text-lg whitespace-nowrap min-w-max">
-                              {detail}
+                            <p key={i} className="text-gray-600 font-light text-base sm:text-lg">
+                              <span style={{ whiteSpace: 'nowrap' }}>{detail}</span>
                             </p>
                           );
                         }
