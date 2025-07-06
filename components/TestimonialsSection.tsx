@@ -30,7 +30,6 @@ export default function TestimonialsSection() {
         backgroundPosition: 'center',
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-gray-100/70 to-white/60"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
