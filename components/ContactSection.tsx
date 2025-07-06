@@ -245,7 +245,7 @@ export default function ContactSection() {
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Location</h3>
               <p className="text-gray-600 mb-8 font-light">Visit us at our Brooklyn office</p>
-              <div className="glass bg-white/80 border border-white/30 rounded-3xl p-8 shadow-xl">
+              <div className="glass bg-white/80 border border-white/30 rounded-3xl p-4 md:p-8 shadow-xl"> {/* Changed p-8 to p-4 md:p-8 */}
                 <div className="aspect-video bg-gray-200 rounded-2xl flex items-center justify-center overflow-hidden">
                   <iframe
                     src="https://maps.google.com/maps?q=955%20Lafayette%20Ave.%2C%20Suite%208%2C%20Brooklyn%2C%20NY%2011221&t=&z=15&ie=UTF8&iwloc=&output=embed"
