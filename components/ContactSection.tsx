@@ -82,6 +82,7 @@ export default function ContactSection() {
                 transition={{ duration: 0.8, delay: 0.2 }} // delay can be removed if it's the only main element
                 viewport={{ once: true }}
                 className="" // Removed lg:ml-auto
+              >
                 <div id="cash-offer-form" className="bg-white rounded-3xl p-8 shadow-2xl max-w-6xl w-full">
                   {/* Form Title (Moved Main Heading Here) */}
                   <div className="mb-8 text-center">
@@ -265,6 +266,7 @@ export default function ContactSection() {
                         <info.icon className="w-8 h-8 text-white" />
                       </div>
                       <h3 className="text-xl font-bold text-gray-900 mb-4">{info.title}</h3>
+                    </div>
                     <div className="space-y-2">
                       {info.details.map((detail, i) => {
                         if (info.title === 'Phone') {
