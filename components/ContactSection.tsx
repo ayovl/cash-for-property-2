@@ -78,7 +78,7 @@ export default function ContactSection() {
                   {/* Form Title (Moved Main Heading Here) */}
                   <div className="mb-8 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-                      Get Your Fair Cash Offer Today!
+                      Sell Your Property Fast
                     </h2>
                     <p className="text-gray-600 text-base mt-2">Get your fair cash offer today and close on your timeline.</p>
                   </div>
