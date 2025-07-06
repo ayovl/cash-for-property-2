@@ -215,7 +215,7 @@ export default function ContactSection() {
                       <info.icon className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">{info.title}</h3>
-                    <div className="space-y-1">
+                    <div className="space-y-2"> {/* Changed from space-y-1 to space-y-2 */}
                       {info.details.map((detail, i) => {
                         if (info.title === 'Phone') {
                           return (
