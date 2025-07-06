@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'; // Added Button import
 
 const stats = [
 	{ number: 35, suffix: '+', label: 'Years of Experience', sublabel: 'Since 1988' },
@@ -58,6 +58,7 @@ export default function AboutSection() {
 					className="text-center"
 				>
 					<span className="text-sm font-medium text-gray-600 mb-4 block">• Who we are?</span>
+					{/* Updated H2 text */}
 					<h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 max-w-6xl mx-auto leading-tight">
 						Your <span className="text-gray-400">Trusted NYC Partner Since 1988.</span> We Deliver Fast, Confidential, <span className="text-black">As-Is Cash Solutions,</span> Making Your Property Sale <span className="text-gray-400">Simple And Stress-Free.</span>
 					</h2>
@@ -85,9 +86,15 @@ export default function AboutSection() {
 							/>
 						</div>
 					</div>
+					{/* Added "Learn More" button with new styling */}
 					<Link href="/about-us" passHref>
-						<Button variant="link" size="sm" className="mt-8 text-gray-600 hover:text-gray-900">
-							Learn More
+						<Button
+							variant="ghost" // Using ghost to allow custom text colors more easily
+							size="sm" // Small size
+							className="mt-8 text-gray-900 font-semibold hover:text-gray-700 transition-colors group flex items-center space-x-2 mx-auto" // Added mx-auto for centering
+						>
+							<span>Learn More</span>
+							<span className="group-hover:translate-x-1 transition-transform">→</span>
 						</Button>
 					</Link>
 				</motion.div>
