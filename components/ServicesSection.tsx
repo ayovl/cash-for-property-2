@@ -64,9 +64,9 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group"
+              className="group flex flex-col" // Added flex flex-col
             >
-              <div className="glass bg-gray-50/80 border border-gray-200/50 rounded-3xl p-8 hover:shadow-xl transition-all duration-300 group-hover:bg-white/90">
+              <div className="glass bg-gray-50/80 border border-gray-200/50 rounded-3xl p-8 hover:shadow-xl transition-all duration-300 group-hover:bg-white/90 h-full"> {/* Added h-full */}
                 <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <service.icon className="w-8 h-8 text-white" />
                 </div>
