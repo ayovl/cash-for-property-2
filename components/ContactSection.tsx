@@ -32,6 +32,8 @@ export default function ContactSection() {
     name: '',
     email: '',
     phone: '',
+    propertyAddress: '',
+    bestTimeToContact: '',
     message: ''
   });
 
@@ -98,11 +100,7 @@ export default function ContactSection() {
                 className="lg:ml-auto"
               >
                 <div className="bg-white rounded-3xl p-8 shadow-2xl max-w-md w-full">
-                  <div className="mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Get Your Cash Offer</h3>
-                    <p className="text-gray-600">Get your fair cash offer today and close on your timeline.</p>
-                  </div>
-
+                  {/* Form Title and Description Removed */}
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                       <input
@@ -116,7 +114,19 @@ export default function ContactSection() {
                       />
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Email Address"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
+                        required
+                      />
+                    </div>
+
+                    <div>
                       <input
                         type="tel"
                         name="phone"
@@ -126,14 +136,28 @@ export default function ContactSection() {
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
                         required
                       />
+                    </div>
+
+                    <div>
                       <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
+                        type="text"
+                        name="propertyAddress"
+                        value={formData.propertyAddress}
                         onChange={handleChange}
-                        placeholder="Email Address"
+                        placeholder="Property Address"
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
                         required
+                      />
+                    </div>
+
+                    <div>
+                      <input
+                        type="text"
+                        name="bestTimeToContact"
+                        value={formData.bestTimeToContact}
+                        onChange={handleChange}
+                        placeholder="Best Time to Contact You"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
                       />
                     </div>
 
