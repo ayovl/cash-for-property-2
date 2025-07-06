@@ -80,6 +80,7 @@ export default function ContactSection() {
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
                       Get Your Fair Cash Offer Today!
                     </h2>
+                    <p className="text-gray-600 text-base mt-2">Get your fair cash offer today and close on your timeline.</p>
                   </div>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
