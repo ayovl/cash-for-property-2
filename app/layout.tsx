@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth" style={{ scrollbarGutter: 'stable' }}>
+    <html lang="en" className="scroll-smooth">
       <body className="overflow-x-hidden">{children}</body>
     </html>
   );
