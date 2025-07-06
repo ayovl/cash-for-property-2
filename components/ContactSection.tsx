@@ -3,6 +3,14 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Label } from '@/components/ui/label'; // Assuming this path
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'; // Assuming this path
 
 const contactInfo = [
   {
@@ -32,6 +40,9 @@ export default function ContactSection() {
     name: '',
     email: '',
     phone: '',
+    propertyAddress: '',
+    contactDay: '',
+    contactTime: '',
     message: ''
   });
 
@@ -49,114 +60,152 @@ export default function ContactSection() {
 
   return (
     <>
-      <section className="py-0">
+      <section className="py-0" id="cash-offer-form">
         {/* Hero Contact Section */}
         <div 
           className="relative min-h-screen flex items-center justify-center overflow-hidden"
           style={{
-            backgroundImage: 'url("https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
+            backgroundImage: 'url("https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         >
           
           <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              {/* Left Side - Heading and Contact Info */}
+            <div className="w-full flex justify-center"> {/* Changed from grid to flex justify-center */}
+              {/* Left Side - Tags Only - This entire motion.div is removed */}
+
+              {/* Right Side - Contact Form - Now the only child, will be centered */}
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
+                initial={{ opacity: 0, y: 50 }} // Adjusted initial y for a slightly different entry
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }} // delay can be removed if it's the only main element
                 viewport={{ once: true }}
-                className="space-y-8"
-              >
-                {/* Top Tags */}
-                <div className="flex flex-wrap gap-4 text-sm text-white">
-                  <span>Fast Cash Offers</span>
-                  <span>•</span>
-                  <span>Client First Approach</span>
-                  <span>•</span>
-                  <span>Trustworthy</span>
-                </div>
-
-                {/* Main Heading */}
-                <div className="space-y-4">
-                  <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                    Fast Cash
-                    <br />
-                    <span className="text-white">— Professional</span>
-                    <br />
-                    <span className="text-white">Client-First</span>
-                  </h2>
-                </div>
-
-                {/* Contact Details */}
-                <div className="space-y-6 pt-8">
-                  <div className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5 text-white" />
-                    <span className="text-lg font-medium text-white whitespace-nowrap">1-800-730-1717</span>
+                className="" // Removed lg:ml-auto
+                <div id="cash-offer-form" className="bg-white rounded-3xl p-8 shadow-2xl max-w-6xl w-full">
+                  {/* Form Title (Moved Main Heading Here) */}
+                  <div className="mb-8 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                      Sell Your Property Fast
+                    </h2>
+                    <p className="text-gray-600 text-base mt-2">Get your fair cash offer today and close on your timeline.</p>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <MapPin className="w-5 h-5 text-white" />
-                    <span className="text-lg text-white">955 Lafayette Ave., Suite 8, Brooklyn, NY 11221</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Mail className="w-5 h-5 text-white" />
-                    <span className="text-lg text-white">info@cashforpropertiesnyc.com</span>
-                  </div>
-                </div>
-              </motion.div>
+                  <form onSubmit={handleSubmit} className="space-y-6"> {/* Adjusted overall form spacing if needed */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
+                      {/* Name */}
+                      <div>
+                        <Label htmlFor="name" className="sr-only">Full Name</Label> {/* Or visible label if preferred */}
+                        <input
+                          id="name"
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="Full Name"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
+                          required
+                        />
+                      </div>
 
-              {/* Right Side - Contact Form */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="lg:ml-auto"
-              >
-                <div className="bg-white rounded-3xl p-8 shadow-2xl max-w-md w-full">
-                  <div className="mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Let's Have a Chat 👋</h3>
-                    <p className="text-gray-600">Get your fair cash offer today and close on your timeline.</p>
-                  </div>
+                      {/* Email Address */}
+                      <div>
+                        <Label htmlFor="email" className="sr-only">Email Address</Label>
+                        <input
+                          id="email"
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="Email Address"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
+                          required
+                        />
+                      </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                      {/* Phone Number */}
+                      <div>
+                        <Label htmlFor="phone" className="sr-only">Phone Number</Label>
+                        <input
+                          id="phone"
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          placeholder="Phone Number"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
+                          required
+                        />
+                      </div>
+
+                      {/* Property Address */}
+                      <div>
+                        <Label htmlFor="propertyAddress" className="sr-only">Property Address</Label>
+                        <input
+                          id="propertyAddress"
+                          type="text"
+                          name="propertyAddress"
+                          value={formData.propertyAddress}
+                          onChange={handleChange}
+                          placeholder="Property Address"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
+                          required
+                        />
+                      </div>
+
+                      {/* Best Day to Contact */}
+                      <div className="space-y-2">
+                        <Label htmlFor="contactDay">Best Day to Contact</Label>
+                        <Select
+                          name="contactDay" // Keep name for potential non-JS submission, though JS handles it
+                          value={formData.contactDay}
+                          onValueChange={(value) => setFormData(prev => ({ ...prev, contactDay: value }))}
+                        >
+                          <SelectTrigger id="contactDay" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50">
+                            <SelectValue placeholder="Select a day" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="Monday">Monday</SelectItem>
+                            <SelectItem value="Tuesday">Tuesday</SelectItem>
+                            <SelectItem value="Wednesday">Wednesday</SelectItem>
+                            <SelectItem value="Thursday">Thursday</SelectItem>
+                            <SelectItem value="Friday">Friday</SelectItem>
+                            <SelectItem value="Saturday">Saturday</SelectItem>
+                            <SelectItem value="Sunday">Sunday</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      {/* Best Time to Contact */}
+                      <div className="space-y-2">
+                        <Label htmlFor="contactTime">Best Time to Contact</Label>
+                        <Select
+                          name="contactTime"
+                          value={formData.contactTime}
+                          onValueChange={(value) => setFormData(prev => ({ ...prev, contactTime: value }))}
+                        >
+                          <SelectTrigger id="contactTime" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50">
+                            <SelectValue placeholder="Select a time slot" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="9am-10am">9:00 AM - 10:00 AM</SelectItem>
+                            <SelectItem value="10am-11am">10:00 AM - 11:00 AM</SelectItem>
+                            <SelectItem value="11am-12pm">11:00 AM - 12:00 PM</SelectItem>
+                            <SelectItem value="12pm-1pm">12:00 PM - 1:00 PM</SelectItem>
+                            <SelectItem value="1pm-2pm">1:00 PM - 2:00 PM</SelectItem>
+                            <SelectItem value="2pm-3pm">2:00 PM - 3:00 PM</SelectItem>
+                            <SelectItem value="3pm-4pm">3:00 PM - 4:00 PM</SelectItem>
+                            <SelectItem value="4pm-5pm">4:00 PM - 5:00 PM</SelectItem>
+                            <SelectItem value="5pm-6pm">5:00 PM - 6:00 PM</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div> {/* End of grid div */}
+
+                    {/* Message Textarea - Full width below the grid */}
                     <div>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Full Name"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
-                        required
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="Phone Number"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
-                        required
-                      />
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Email Address"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors bg-gray-50"
-                        required
-                      />
-                    </div>
-
-                    <div>
+                      <Label htmlFor="message" className="sr-only">How can we help you?</Label>
                       <textarea
+                        id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
@@ -184,6 +233,7 @@ export default function ContactSection() {
         <div id="contact-information-section" className="py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-32">
             <motion.div
+              id="contact-details-area" // Added ID here
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}

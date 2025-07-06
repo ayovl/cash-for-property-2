@@ -97,33 +97,15 @@
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* Default state for nav links and icons (white) */
-.nav-link-text {
-  color: white; /* Tailwind class: text-white */
-  opacity: 0.9; /* Tailwind class: text-white/90. Applied directly here for simplicity */
-  transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+/* Apply padding to the header when Radix locks scroll and adds padding to the body.
+   15px is a common fallback for scrollbar width. This value might need adjustment
+   if the actual scrollbar width compensated by Radix is different. */
+body[data-radix-scroll-locked='true'] header#main-header {
+  padding-right: 15px !important; /* Default scrollbar width, adjust if necessary */
 }
 
-.nav-link-text:hover {
-  opacity: 1.0; /* Tailwind class: hover:text-white */
-}
-
-.nav-icon {
-  color: white; /* Tailwind class: text-white */
-  transition: color 0.3s ease-in-out;
-}
-
-/* Scrolled state for nav links and icons (black) */
-.header-scrolled .nav-link-text {
-  color: black; /* Tailwind class: text-black */
-  opacity: 0.9;
-}
-
-.header-scrolled .nav-link-text:hover {
-  color: black;
-  opacity: 1.0;
-}
-
-.header-scrolled .nav-icon {
-  color: black; /* Tailwind class: text-black */
+/* Ensure body itself doesn't show its own scrollbars when Radix adds padding
+   and sets its own overflow:hidden. This is a defensive measure. */
+body[data-radix-scroll-locked='true'] {
+  overflow: hidden !important;
 }

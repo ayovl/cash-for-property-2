@@ -5,7 +5,7 @@ import { Building2, Phone } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section id="hero-section" className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 z-0"
@@ -18,7 +18,7 @@ export default function Hero() {
         <div className="absolute inset-0"></div>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-10 sm:pt-16 pb-8">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-8">
         <div className="text-center mt-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -61,20 +61,22 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-black text-base px-5 py-0 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg min-h-[56px] w-[200px] flex items-center justify-center sm:text-xs sm:px-4 sm:py-2.5 sm:min-h-[40px] sm:w-[150px]"
-            >
-              Get Your Cash Offer
-            </motion.button>
+            <a href="#cash-offer-form">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-black px-4 py-2.5 rounded-lg font-semibold text-xs hover:bg-gray-100 transition-colors shadow-lg min-h-[40px] w-[150px] flex items-center justify-center"
+              >
+                Get Your Cash Offer
+              </motion.button>
+            </a>
             <motion.a
               href="tel:1-800-730-1717"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white/10 border border-white/20 text-black text-base px-5 py-0 rounded-lg font-semibold hover:bg-white/20 transition-colors shadow-lg min-h-[56px] w-[200px] flex items-center justify-center space-x-1.5 backdrop-blur-lg sm:text-xs sm:px-4 sm:py-2.5 sm:min-h-[40px] sm:w-[150px] sm:space-x-1"
+              className="bg-white/10 border border-white/20 text-white px-4 py-2.5 rounded-lg font-semibold text-xs hover:bg-white/20 transition-colors shadow-lg min-h-[40px] w-[150px] flex items-center justify-center space-x-1"
             >
-              <Phone className="w-4 h-4 sm:w-3 sm:h-3 text-black" />
+              <Phone className="w-3 h-3" />
               <span>1-800-730-1717</span>
             </motion.a>
           </motion.div>
