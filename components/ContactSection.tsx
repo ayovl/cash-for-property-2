@@ -59,7 +59,7 @@ export default function ContactSection() {
             backgroundPosition: 'center',
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-black/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/10 to-black/20"></div>
           
           <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
