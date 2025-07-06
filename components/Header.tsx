@@ -147,8 +147,9 @@ export default function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }} // Added explicit transition
-              className="md:hidden mt-4 pt-4 border-t border-white/20 overflow-hidden" // Added overflow-hidden
+              transition={{ type: "tween", duration: 0.3, ease: "easeOut" }} // Changed ease to "easeOut"
+              className="md:hidden mt-4 pt-4 border-t border-white/20 overflow-hidden"
+              layout // Added layout prop
             >
               <nav className="flex flex-col space-y-4">
                 <button 
