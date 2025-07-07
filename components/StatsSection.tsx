@@ -85,32 +85,32 @@ export default function StatsSection() {
             </div>
             
             {/* Top-left card - Properties Purchased - extends beyond image */}
-            <div className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-lg p-4 max-w-[200px] z-10">
-              <div className="flex items-center gap-2 mb-2">
+            <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 bg-white rounded-xl sm:rounded-2xl shadow-lg p-2 sm:p-3 md:p-4 max-w-[140px] sm:max-w-[160px] md:max-w-[200px] z-10">
+              <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-sm text-gray-600">Properties Purchased</span>
+                <span className="text-xs sm:text-sm text-gray-600">Properties Purchased</span>
               </div>
-              <div className="text-2xl font-bold text-gray-900">
+              <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
                 1500+
               </div>
-              <div className="text-sm text-gray-500">Since 1988</div>
+              <div className="text-xs sm:text-sm text-gray-500">Since 1988</div>
             </div>
 
             {/* Bottom-right card - Average Closing Time - extends beyond image */}
-            <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg p-4 max-w-[200px] z-10">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-4 h-4 text-blue-500">
+            <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-white rounded-xl sm:rounded-2xl shadow-lg p-2 sm:p-3 md:p-4 max-w-[140px] sm:max-w-[160px] md:max-w-[200px] z-10">
+              <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500">
                   <svg viewBox="0 0 24 24" fill="currentColor">
                     <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
                     <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" fill="none"/>
                   </svg>
                 </div>
-                <span className="text-sm text-gray-600">Average Closing Time</span>
+                <span className="text-xs sm:text-sm text-gray-600">Average Closing Time</span>
               </div>
-              <div className="text-2xl font-bold text-gray-900">
+              <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
                 14 Days
               </div>
-              <div className="text-sm text-gray-500">From offer to cash</div>
+              <div className="text-xs sm:text-sm text-gray-500">From offer to cash</div>
             </div>
           </motion.div>
 
@@ -129,14 +129,14 @@ export default function StatsSection() {
               </h2>
             </div>
 
-            <div className="flex gap-12 flex-wrap lg:flex-nowrap">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-8 sm:gap-12 lg:flex-nowrap">
               {/* Properties Purchased */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="text-left flex-shrink-0"
+                className="text-center lg:text-left flex-shrink-0 w-full sm:w-auto"
               >
                 <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">
                   <AnimatedCounter target={1500} suffix="+" start={isInView} duration={2000} />
@@ -151,7 +151,7 @@ export default function StatsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="text-left flex-shrink-0"
+                className="text-center lg:text-left flex-shrink-0 w-full sm:w-auto"
               >
                 <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">
                   <AnimatedCounter target={14} suffix=" Days" start={isInView} duration={2000} />
@@ -166,7 +166,7 @@ export default function StatsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
-                className="text-left flex-shrink-0"
+                className="text-center lg:text-left flex-shrink-0 w-full sm:w-auto"
               >
                 <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">
                   <AnimatedCounter target={98} suffix="%" start={isInView} duration={2000} />
