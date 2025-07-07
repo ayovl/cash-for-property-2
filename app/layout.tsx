@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: 'We buy properties for cash fast as-is in NYC. No repairs, no agents, no hassle. Trusted property buyers since 1988. Get your cash offer today.',
 };
 
+import ScrollToTopButton from '@/components/ScrollToTopButton'; // Import the new component
+
 export default function RootLayout({
   children,
 }: {
@@ -13,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="overflow-x-hidden">{children}</body>
+      <body className="overflow-x-hidden">
+        {children}
+        <ScrollToTopButton /> {/* Add the button here */}
+      </body>
     </html>
   );
 }
