@@ -110,4 +110,19 @@ body[data-radix-scroll-locked='true'] > div > main { /* Targets the main element
    and sets its own overflow:hidden. This is a defensive measure. */
 body[data-radix-scroll-locked='true'] {
   overflow: hidden !important;
+  position: relative; /* Needed for positioning the pseudo-element */
+}
+
+/* Style the scrollbar compensation area on desktop to be light grey */
+@media (min-width: 768px) {
+  body[data-radix-scroll-locked='true']::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15px; /* Corresponds to the padding-right */
+    height: 100%;
+    background-color: #e5e7eb; /* Tailwind gray-200 */
+    z-index: 9998; /* Below typical modal z-index (e.g., 9999 for Radix popovers) but above page content */
+  }
 }
