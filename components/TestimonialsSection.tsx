@@ -30,8 +30,8 @@ export default function TestimonialsSection() {
         backgroundPosition: 'center',
       }}
     >
-      {/* Overlay div - ensure no blur and no background color for now */}
-      <div className="absolute inset-0"></div>
+      {/* Overlay div - desktop only white overlay, no blur */}
+      <div className="absolute inset-0 md:bg-white/10"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
@@ -42,10 +42,10 @@ export default function TestimonialsSection() {
           className="text-center mb-20"
         >
           <span className="text-sm font-medium text-gray-700 mb-4 block">• Testimonials</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-black md:text-white mb-4 max-w-4xl mx-auto leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 max-w-4xl mx-auto leading-tight">
             What Our Clients Say
           </h2>
-          <p className="text-xl text-black md:text-white max-w-3xl mx-auto font-medium">
+          <p className="text-xl text-black max-w-3xl mx-auto font-medium">
             Don't just take our word for it - hear from property owners we've helped throughout NYC.
           </p>
         </motion.div>
