@@ -30,8 +30,8 @@ export default function TestimonialsSection() {
         backgroundPosition: 'center',
       }}
     >
-      {/* Overlay div - desktop only white overlay, no blur */}
-      <div className="absolute inset-0 md:bg-white/50"></div>
+      {/* Overlay div - 50% white overlay for all screen sizes, no blur */}
+      <div className="absolute inset-0 bg-white/50"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
