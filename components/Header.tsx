@@ -1,11 +1,34 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById('hero-section');
+      if (heroSection) {
+        const heroSectionBottom = heroSection.offsetHeight;
+        if (window.scrollY > heroSectionBottom) {
+          setIsScrolledPastHero(true);
+        } else {
+          setIsScrolledPastHero(false);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial check in case the page loads already scrolled
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -16,12 +39,23 @@ export default function Header() {
   };
 
   return (
-    <motion.header
+    <>
+      {isMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+      <motion.header
       id="main-header" // Added id here
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 px-4 py-2"
+      className={`fixed top-0 left-0 right-0 z-50 px-4 py-2 ${isScrolledPastHero ? 'header-scrolled' : ''}`}
     >
       <div className="max-w-7xl mx-auto">
         <div className="glass bg-white/10 border border-white/20 rounded-xl px-4 py-2 shadow-xl">
@@ -163,5 +197,6 @@ export default function Header() {
         </div>
       </div>
     </motion.header>
+    </>
   );
 }
