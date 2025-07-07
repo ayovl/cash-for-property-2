@@ -31,7 +31,7 @@ export default function TestimonialsSection() {
       }}
     >
       {/* White backdrop overlay for better text visibility */}
-      <div className="absolute inset-0 bg-white/10"></div>
+      <div className="absolute inset-0 bg-white/20"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
@@ -45,7 +45,7 @@ export default function TestimonialsSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 max-w-4xl mx-auto leading-tight">
             What Our Clients Say
           </h2>
-          <p className="text-xl text-gray-800 max-w-3xl mx-auto font-medium">
+          <p className="text-xl text-gray-900 max-w-3xl mx-auto font-medium">
             Don't just take our word for it - hear from property owners we've helped throughout NYC.
           </p>
         </motion.div>
