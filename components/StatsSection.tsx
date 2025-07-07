@@ -64,8 +64,8 @@ export default function StatsSection() {
 
   return (
     <section className="pt-16 pb-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-24"> {/* Restored symmetrical padding for lg screens */}
-        <div className="grid lg:grid-cols-2 gap-8 items-center"> {/* Reduced gap from 16 to 8 */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left side - Image with overlay cards */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -76,7 +76,7 @@ export default function StatsSection() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/hero.png"
+                src="/stats.jpg"
                 alt="Beautiful house with green lawn"
                 width={600}
                 height={500}
@@ -121,7 +121,7 @@ export default function StatsSection() {
             onViewportEnter={() => setIsInView(true)}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="space-y-8 lg:pr-12" // Added lg:pr-12 to constrain right column width
+            className="space-y-8"
           >
             <div>
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -129,17 +129,14 @@ export default function StatsSection() {
               </h2>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-6 md:gap-8 lg:flex-nowrap lg:justify-start lg:gap-12"> {/* Added lg:flex-nowrap */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-items-center lg:justify-items-start">
               {/* Properties Purchased */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="w-full sm:w-4/5 md:w-auto text-center lg:text-left
-                           p-4 sm:p-6 rounded-xl shadow-lg bg-slate-50
-                           md:p-0 md:shadow-none md:bg-transparent  // Revert card styles from md upwards if they go side-by-side cleanly
-                           lg:flex-shrink-0" // Ensure it shrinks on lg if needed. md:w-auto lets it take content width.
+                className="w-full max-w-xs text-center lg:text-left p-4 sm:p-6 rounded-xl shadow-lg bg-slate-50 md:p-4 md:shadow-lg md:bg-slate-50 lg:p-0 lg:shadow-none lg:bg-transparent"
               >
                 <div className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900 mb-1">
                   <AnimatedCounter target={1500} suffix="+" start={isInView} duration={2000} />
@@ -154,10 +151,7 @@ export default function StatsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="w-full sm:w-4/5 md:w-auto text-center lg:text-left
-                           p-4 sm:p-6 rounded-xl shadow-lg bg-slate-50
-                           md:p-0 md:shadow-none md:bg-transparent
-                           lg:flex-shrink-0"
+                className="w-full max-w-xs text-center lg:text-left p-4 sm:p-6 rounded-xl shadow-lg bg-slate-50 md:p-4 md:shadow-lg md:bg-slate-50 lg:p-0 lg:shadow-none lg:bg-transparent"
               >
                 <div className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900 mb-1">
                   <AnimatedCounter target={14} suffix=" Days" start={isInView} duration={2000} />
@@ -172,10 +166,7 @@ export default function StatsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
-                className="w-full sm:w-4/5 md:w-auto text-center lg:text-left
-                           p-4 sm:p-6 rounded-xl shadow-lg bg-slate-50
-                           md:p-0 md:shadow-none md:bg-transparent
-                           lg:flex-shrink-0"
+                className="w-full max-w-xs text-center lg:text-left p-4 sm:p-6 rounded-xl shadow-lg bg-slate-50 md:p-4 md:shadow-lg md:bg-slate-50 lg:p-0 lg:shadow-none lg:bg-transparent sm:col-span-2 sm:justify-self-center lg:col-span-1 lg:justify-self-start"
               >
                 <div className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900 mb-1">
                   <AnimatedCounter target={98} suffix="%" start={isInView} duration={2000} />

@@ -103,7 +103,7 @@ export default function Hero() {
               className="bg-white/10 border border-white/20 text-black px-6 py-3.5 rounded-lg font-semibold text-sm hover:bg-white/20 transition-colors shadow-lg min-h-[48px] w-[180px] flex items-center justify-center space-x-2 whitespace-nowrap"
               style={{ backdropFilter: 'blur(15px)', WebkitBackdropFilter: 'blur(15px)' }}
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-4 h-4 text-bla" />
               <span>1-800-730-1717</span>
             </motion.a>
           </motion.div>
