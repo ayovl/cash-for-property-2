@@ -232,7 +232,7 @@ export default function ContactSection() {
         </div>
 
         <div id="contact-information-section" className="py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-32">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-16 lg:px-24 xl:px-32">
             <motion.div
               id="contact-details-area" // Added ID here
               initial={{ opacity: 0, y: 30 }}
