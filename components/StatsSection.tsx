@@ -64,7 +64,7 @@ export default function StatsSection() {
 
   return (
     <section className="pt-16 pb-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:pl-32 lg:pr-16"> {/* Asymmetric padding for lg screens */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-24"> {/* Restored symmetrical padding for lg screens */}
         <div className="grid lg:grid-cols-2 gap-8 items-center"> {/* Reduced gap from 16 to 8 */}
           {/* Left side - Image with overlay cards */}
           <motion.div
@@ -121,7 +121,7 @@ export default function StatsSection() {
             onViewportEnter={() => setIsInView(true)}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-8 lg:pr-12" // Added lg:pr-12 to constrain right column width
           >
             <div>
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
