@@ -88,7 +88,7 @@ export default function StatsSection() {
             <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 bg-white rounded-xl sm:rounded-2xl shadow-lg p-2 sm:p-3 md:p-4 max-w-[140px] sm:max-w-[160px] md:max-w-[200px] z-10">
               <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-xs sm:text-sm text-gray-600">Properties Purchased</span>
+                <span className="text-[10px] leading-tight sm:text-xs md:text-sm text-gray-600">Properties Purchased</span>
               </div>
               <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
                 1500+
@@ -105,7 +105,7 @@ export default function StatsSection() {
                     <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" fill="none"/>
                   </svg>
                 </div>
-                <span className="text-xs sm:text-sm text-gray-600">Average Closing Time</span>
+                <span className="text-[10px] leading-tight sm:text-xs md:text-sm text-gray-600">Average Closing Time</span>
               </div>
               <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
                 14 Days
