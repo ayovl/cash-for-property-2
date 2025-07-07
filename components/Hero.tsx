@@ -2,14 +2,26 @@
 
 import { motion } from 'framer-motion';
 import { Building2, Phone } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function Hero() {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = '/hero.png';
+    img.onload = () => setIsImageLoaded(true);
+  }, []);
+
   return (
     <section id="hero-section" className="relative min-h-screen overflow-hidden">
+      {/* Preload the image, but keep it hidden */}
+      <img src="/hero.png" alt="" style={{ display: 'none' }} onLoad={() => setIsImageLoaded(true)} />
+
       {/* Background Image */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={{ opacity: isImageLoaded ? 1 : 0 }}
         transition={{ duration: 1.0, delay: 0.2 }}
         className="absolute inset-0 z-0"
         style={{
