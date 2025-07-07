@@ -7,7 +7,10 @@ export default function Hero() {
   return (
     <section id="hero-section" className="relative min-h-screen overflow-hidden">
       {/* Background Image */}
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.0, delay: 0.2 }}
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: 'url("/hero.png")',
@@ -16,7 +19,7 @@ export default function Hero() {
         }}
       >
         <div className="absolute inset-0"></div>
-      </div>
+      </motion.div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-8">
         <div className="text-center mt-12 md:mt-20">
