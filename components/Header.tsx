@@ -75,31 +75,31 @@ export default function Header() {
             <nav className="hidden md:flex items-center space-x-6">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="text-white/90 hover:text-white transition-colors font-medium text-sm"
+                className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm`}
               >
                 HOME
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="text-white/90 hover:text-white transition-colors font-medium text-sm"
+                className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm`}
               >
                 ABOUT
               </button>
               <button 
                 onClick={() => scrollToSection('how-it-works')}
-                className="text-white/90 hover:text-white transition-colors font-medium text-sm"
+                className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm`}
               >
                 HOW IT WORKS
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className="text-white/90 hover:text-white transition-colors font-medium text-sm"
+                className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm`}
               >
                 SERVICES
               </button>
               <button 
                 onClick={() => scrollToSection('contact-details-area')}
-                className="text-white/90 hover:text-white transition-colors font-medium text-sm"
+                className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm`}
               >
                 CONTACT
               </button>
@@ -109,7 +109,7 @@ export default function Header() {
             <div className="hidden md:flex items-center space-x-4">
               <a
                 href="tel:1-800-730-1717"
-                className="flex items-center space-x-2 text-white/90 hover:text-white transition-colors"
+                className={`flex items-center space-x-2 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors`}
               >
                 <Phone className="w-4 h-4" />
                 <span className="text-sm font-medium">1-800-730-1717</span>
@@ -179,17 +179,17 @@ export default function Header() {
                   CONTACT
                 </button>
                 {isScrolledPastHero && (
-                  <div className="pt-4 space-y-3 border-t border-white/20 mt-4">
+                  <div className="pt-4 space-y-3 border-t border-gray-200 mt-4">
                     <a
                       href="tel:1-800-730-1717"
-                      className="flex items-center space-x-2 text-black"
+                      className="flex items-center space-x-2 text-gray-900"
                     >
                       <Phone className="w-4 h-4" />
                       <span className="text-sm font-medium">1-800-730-1717</span>
                     </a>
                     <button 
                       onClick={() => scrollToSection('cash-offer-form')}
-                      className="w-full bg-white text-black py-2.5 rounded-xl font-medium text-sm"
+                      className="w-full bg-gray-900 text-white py-2.5 rounded-xl font-medium text-sm hover:bg-gray-800 transition-colors"
                     >
                       Get Cash Offer
                     </button>
