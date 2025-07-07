@@ -64,7 +64,7 @@ export default function StatsSection() {
 
   return (
     <section className="pt-16 pb-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:pl-32 lg:pr-16"> {/* Asymmetric padding for lg screens */}
         <div className="grid lg:grid-cols-2 gap-8 items-center"> {/* Reduced gap from 16 to 8 */}
           {/* Left side - Image with overlay cards */}
           <motion.div
@@ -72,7 +72,7 @@ export default function StatsSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative lg:pr-8" // Added lg:pr-8 to push image left, balancing perceived space
+            className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <Image
