@@ -31,7 +31,7 @@ export default function TestimonialsSection() {
       }}
     >
       {/* White backdrop overlay for better text visibility */}
-      <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px]"></div>
+      <div className="absolute inset-0 bg-white/10"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
