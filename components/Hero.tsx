@@ -10,19 +10,30 @@ export default function Hero() {
   useEffect(() => {
     const img = new Image();
     img.src = '/hero.png';
-    img.onload = () => setIsImageLoaded(true);
+    img.onload = () => {
+      setIsImageLoaded(true);
+    };
+    // Optional: handle image loading errors
+    // img.onerror = () => {
+    //   console.error("Hero image failed to load.");
+    //   // Potentially set isImageLoaded to true anyway to reveal content,
+    //   // or handle error differently
+    //   setIsImageLoaded(true);
+    // };
   }, []);
+
+  const imageVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1.0, delay: 0.2 } },
+  };
 
   return (
     <section id="hero-section" className="relative min-h-screen overflow-hidden">
-      {/* Preload the image, but keep it hidden */}
-      <img src="/hero.png" alt="" style={{ display: 'none' }} onLoad={() => setIsImageLoaded(true)} />
-
       {/* Background Image */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isImageLoaded ? 1 : 0 }}
-        transition={{ duration: 1.0, delay: 0.2 }}
+        variants={imageVariants}
+        initial="hidden"
+        animate={isImageLoaded ? 'visible' : 'hidden'}
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: 'url("/hero.png")',
