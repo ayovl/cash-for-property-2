@@ -2,12 +2,38 @@
 
 import { motion } from 'framer-motion';
 import { Building2, Phone } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function Hero() {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = '/hero.png';
+    img.onload = () => {
+      setIsImageLoaded(true);
+    };
+    // Optional: handle image loading errors
+    // img.onerror = () => {
+    //   console.error("Hero image failed to load.");
+    //   // Potentially set isImageLoaded to true anyway to reveal content,
+    //   // or handle error differently
+    //   setIsImageLoaded(true);
+    // };
+  }, []);
+
+  const imageVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1.0, delay: 0.2 } },
+  };
+
   return (
     <section id="hero-section" className="relative min-h-screen overflow-hidden">
       {/* Background Image */}
-      <div
+      <motion.div
+        variants={imageVariants}
+        initial="hidden"
+        animate={isImageLoaded ? 'visible' : 'hidden'}
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: 'url("/hero.png")',
@@ -16,7 +42,7 @@ export default function Hero() {
         }}
       >
         <div className="absolute inset-0"></div>
-      </div>
+      </motion.div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-8">
         <div className="text-center mt-12 md:mt-20">
