@@ -97,10 +97,12 @@
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* Apply padding to the header when Radix locks scroll and adds padding to the body.
+/* Apply padding to elements when Radix locks scroll and adds padding to the body.
    15px is a common fallback for scrollbar width. This value might need adjustment
-   if the actual scrollbar width compensated by Radix is different. */
-body[data-radix-scroll-locked='true'] header#main-header {
+   if the actual scrollbar width compensated by Radix is different, or ideally,
+   use a CSS variable provided by Radix if available for scrollbar width. */
+body[data-radix-scroll-locked='true'] header#main-header,
+body[data-radix-scroll-locked='true'] > div > main { /* Targets the main element within the Next.js structure */
   padding-right: 15px !important; /* Default scrollbar width, adjust if necessary */
 }
 
