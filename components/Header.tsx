@@ -109,7 +109,7 @@ export default function Header() {
             <div className="hidden md:flex items-center space-x-4">
               <a
                 href="tel:1-800-730-1717"
-                className={`flex items-center space-x-2 transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white`}
+                className={`flex items-center space-x-2 px-4 py-2 rounded-xl glass-strong bg-white/10 border border-white/20 transition-all duration-300 ${isScrolledPastHero ? 'text-black bg-white/20' : 'text-white/90 bg-white/10'} hover:text-white hover:bg-white/20`}
               >
                 <Phone className="w-4 h-4" />
                 <span className="text-sm font-medium">1-800-730-1717</span>
@@ -182,14 +182,14 @@ export default function Header() {
                   <div className="pt-4 space-y-3 mt-4">
                     <a
                       href="tel:1-800-730-1717"
-                      className="w-full bg-transparent border border-white text-white py-2.5 rounded-xl font-medium text-sm hover:bg-white hover:text-black transition-colors flex items-center justify-center space-x-2"
+                      className="w-full bg-transparent border border-white text-white py-4 rounded-xl font-medium text-base hover:bg-white hover:text-black transition-colors flex items-center justify-center space-x-2 glass-strong"
                     >
-                      <Phone className="w-4 h-4" />
+                      <Phone className="w-5 h-5" />
                       <span>1-800-730-1717</span>
                     </a>
                     <button 
                       onClick={() => scrollToSection('cash-offer-form')}
-                      className="w-full bg-black text-white py-2.5 rounded-xl font-medium text-sm hover:bg-gray-900 transition-colors"
+                      className="w-full bg-black text-white py-4 rounded-xl font-medium text-base hover:bg-gray-900 transition-colors"
                     >
                       Get Cash Offer
                     </button>

@@ -3,14 +3,14 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
-import { Label } from '@/components/ui/label'; // Assuming this path
+import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'; // Assuming this path
+} from '@/components/ui/select';
 
 const contactInfo = [
   {
@@ -72,30 +72,27 @@ export default function ContactSection() {
         >
           
           <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-            <div className="w-full flex justify-center"> {/* Changed from grid to flex justify-center */}
-              {/* Left Side - Tags Only - This entire motion.div is removed */}
-
-              {/* Right Side - Contact Form - Now the only child, will be centered */}
+            <div className="w-full flex justify-center">
               <motion.div
-                initial={{ opacity: 0, y: 50 }} // Adjusted initial y for a slightly different entry
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }} // delay can be removed if it's the only main element
+                transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="" // Removed lg:ml-auto
+                className=""
               >
                 <div id="cash-offer-form" className="bg-white rounded-3xl p-8 shadow-2xl max-w-6xl w-full">
-                  {/* Form Title (Moved Main Heading Here) */}
+                  {/* Form Title */}
                   <div className="mb-8 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
                       Sell Your Property Fast
                     </h2>
                     <p className="text-gray-600 text-base mt-2">Get your fair cash offer today and close on your timeline.</p>
                   </div>
-                  <form onSubmit={handleSubmit} className="space-y-6"> {/* Adjusted overall form spacing if needed */}
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
                       {/* Name */}
                       <div>
-                        <Label htmlFor="name" className="sr-only">Full Name</Label> {/* Or visible label if preferred */}
+                        <Label htmlFor="name" className="sr-only">Full Name</Label>
                         <input
                           id="name"
                           type="text"
@@ -200,7 +197,7 @@ export default function ContactSection() {
                           </SelectContent>
                         </Select>
                       </div>
-                    </div> {/* End of grid div */}
+                    </div>
 
                     {/* Message Textarea - Full width below the grid */}
                     <div>
@@ -234,7 +231,7 @@ export default function ContactSection() {
         <div id="contact-information-section" className="py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-32">
             <motion.div
-              id="contact-details-area" // Added ID here
+              id="contact-details-area"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -250,7 +247,7 @@ export default function ContactSection() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16"> {/* Reverted: Removed justify-items-center */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={index}
@@ -258,10 +255,10 @@ export default function ContactSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-center h-full" // Reverted: Removed max-w-md
+                  className="text-center h-full"
                 >
-                  <div className="glass bg-white/80 border border-white/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow min-h-full flex flex-col justify-start"> {/* Added min-h-full, flex, flex-col, justify-start */}
-                    <div> {/* Wrapper for icon and title */}
+                  <div className="glass bg-white/80 border border-white/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow min-h-full flex flex-col justify-start">
+                    <div>
                       <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <info.icon className="w-8 h-8 text-white" />
                       </div>
@@ -297,7 +294,7 @@ export default function ContactSection() {
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Location</h3>
               <p className="text-gray-600 mb-8 font-light">Visit us at our Brooklyn office</p>
-              <div className="glass bg-white/80 border border-white/30 rounded-3xl p-2 shadow-xl"> {/* Diagnostic: Changed to p-2 */}
+              <div className="glass bg-white/80 border border-white/30 rounded-3xl p-2 shadow-xl">
                 <div className="aspect-video bg-gray-200 rounded-2xl flex items-center justify-center overflow-hidden">
                   <iframe
                     src="https://maps.google.com/maps?q=955%20Lafayette%20Ave.%2C%20Suite%208%2C%20Brooklyn%2C%20NY%2011221&t=&z=15&ie=UTF8&iwloc=&output=embed"

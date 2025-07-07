@@ -97,34 +97,52 @@
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* Apply padding to elements when Radix locks scroll and adds padding to the body.
-   15px is a common fallback for scrollbar width. This value might need adjustment
-   if the actual scrollbar width compensated by Radix is different, or ideally,
-   use a CSS variable provided by Radix if available for scrollbar width. */
-body[data-radix-scroll-locked='true'] header#main-header,
-body[data-radix-scroll-locked='true'] > div > main { /* Targets the main element within the Next.js structure */
-  padding-right: 15px !important; /* Default scrollbar width, adjust if necessary */
+.glass-strong {
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
 }
 
-/* Ensure body itself doesn't show its own scrollbars when Radix adds padding
-   and sets its own overflow:hidden. This is a defensive measure. */
-html[data-radix-scroll-locked='true'] body, /* Apply to body when html has the attribute */
-body[data-radix-scroll-locked='true'] {
-  overflow: hidden !important;
-  position: relative !important; /* Needed for positioning the pseudo-element, ensure it applies */
+/* Completely prevent Radix scroll lock behavior */
+
+/* Force prevent any scroll lock effects on body and html */
+body[data-radix-scroll-locked],
+body[data-radix-scroll-locked='true'],
+html[data-radix-scroll-locked],
+html[data-radix-scroll-locked='true'] {
+  overflow: visible !important;
+  position: static !important;
+  padding-right: 0 !important;
+  margin-right: 0 !important;
 }
 
-/* Style the scrollbar compensation area on desktop to be light grey - more forceful */
-@media (min-width: 768px) {
-  html[data-radix-scroll-locked='true'] body::after,
-  body[data-radix-scroll-locked='true']::after {
-    content: "" !important;
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important; /* Ensure it's pinned to the right */
-    width: 15px !important; /* Corresponds to the padding-right */
-    height: 100% !important;
-    background-color: #e5e7eb !important; /* Tailwind gray-200 */
-    z-index: 9998 !important; /* Below typical modal z-index but above page content */
-  }
+/* Prevent header from getting any padding or margin adjustments */
+body[data-radix-scroll-locked] header,
+body[data-radix-scroll-locked='true'] header,
+body[data-radix-scroll-locked] #main-header,
+body[data-radix-scroll-locked='true'] #main-header {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+  right: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* Remove any pseudo-elements that might appear */
+body[data-radix-scroll-locked]::before,
+body[data-radix-scroll-locked]::after,
+body[data-radix-scroll-locked='true']::before,
+body[data-radix-scroll-locked='true']::after,
+html[data-radix-scroll-locked]::before,
+html[data-radix-scroll-locked]::after,
+html[data-radix-scroll-locked='true']::before,
+html[data-radix-scroll-locked='true']::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Ensure all elements maintain their normal layout */
+body[data-radix-scroll-locked] *,
+body[data-radix-scroll-locked='true'] * {
+  margin-right: 0 !important;
+  padding-right: inherit !important;
 }
