@@ -118,7 +118,7 @@ export default function Header() {
                 onClick={() => scrollToSection('cash-offer-form')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-black px-6 py-2.5 rounded-xl hover:bg-gray-100 transition-colors font-medium text-sm"
+                className={`px-6 py-2.5 rounded-xl transition-colors font-medium text-sm ${isScrolledPastHero ? 'bg-black text-white hover:bg-gray-800' : 'bg-white text-black hover:bg-gray-100'}`}
               >
                 Get Cash Offer
               </motion.button>
@@ -182,14 +182,14 @@ export default function Header() {
                   <div className="pt-4 space-y-3 mt-4">
                     <a
                       href="tel:1-800-730-1717"
-                      className="w-full bg-transparent border border-white text-white py-4 rounded-xl font-medium text-base hover:bg-white hover:text-black transition-colors flex items-center justify-center space-x-2 glass-strong"
+                      className={`w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-xl glass-strong transition-all duration-300 font-medium text-sm ${isScrolledPastHero ? 'text-black bg-white/70 hover:bg-white border border-white/20' : 'text-white/90 bg-white/10 hover:text-white hover:bg-white/20 border border-white/20'}`}
                     >
-                      <Phone className="w-5 h-5" />
+                      <Phone className="w-4 h-4" />
                       <span>1-800-730-1717</span>
                     </a>
                     <button 
                       onClick={() => scrollToSection('cash-offer-form')}
-                      className="w-full bg-black text-white py-4 rounded-xl font-medium text-base hover:bg-gray-900 transition-colors"
+                      className={`w-full py-3 rounded-xl transition-colors font-medium text-sm ${isScrolledPastHero ? 'bg-black text-white hover:bg-gray-800' : 'bg-white text-black hover:bg-gray-100'}`}
                     >
                       Get Cash Offer
                     </button>
