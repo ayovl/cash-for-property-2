@@ -68,7 +68,7 @@ export default function Header() {
               <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center">
                 <span className="text-black font-bold text-xs">C</span>
               </div>
-              <span className="text-white font-semibold text-sm">Cash for Properties</span>
+              <span className={`font-semibold text-sm ${isScrolledPastHero ? 'text-black' : 'text-white'}`}>Cash for Properties</span>
             </button>
 
             {/* Desktop Navigation */}
@@ -130,9 +130,9 @@ export default function Header() {
               className="md:hidden p-2"
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6 text-white" />
+                <X className={`w-6 h-6 ${isScrolledPastHero ? 'text-black' : 'text-white'}`} />
               ) : (
-                <Menu className="w-6 h-6 text-white" />
+                <Menu className={`w-6 h-6 ${isScrolledPastHero ? 'text-black' : 'text-white'}`} />
               )}
             </button>
           </div>
@@ -140,57 +140,61 @@ export default function Header() {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4 pt-4 border-t border-white/20"
+              initial={{ opacity: 0, maxHeight: 0 }}
+              animate={{ opacity: 1, maxHeight: '500px' }}
+              exit={{ opacity: 0, maxHeight: 0 }}
+              transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
+              className="md:hidden mt-4 pt-4 border-t border-white/20 overflow-hidden"
+              layout
             >
               <nav className="flex flex-col space-y-4">
                 <button 
                   onClick={() => scrollToSection('home')}
-                  className="text-white/90 hover:text-white transition-colors font-medium text-sm text-left"
+                  className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm text-left`}
                 >
                   HOME
                 </button>
                 <button 
                   onClick={() => scrollToSection('about')}
-                  className="text-white/90 hover:text-white transition-colors font-medium text-sm text-left"
+                  className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm text-left`}
                 >
                   ABOUT
                 </button>
                 <button 
                   onClick={() => scrollToSection('how-it-works')}
-                  className="text-white/90 hover:text-white transition-colors font-medium text-sm text-left"
+                  className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm text-left`}
                 >
                   HOW IT WORKS
                 </button>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-white/90 hover:text-white transition-colors font-medium text-sm text-left"
+                  className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm text-left`}
                 >
                   SERVICES
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact-details-area')}
-                  className="text-white/90 hover:text-white transition-colors font-medium text-sm text-left"
+                  className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm text-left`}
                 >
                   CONTACT
                 </button>
-                <div className="pt-4 space-y-3">
-                  <a
-                    href="tel:1-800-730-1717"
-                    className="flex items-center space-x-2 text-white/90"
-                  >
-                    <Phone className="w-4 h-4" />
-                    <span className="text-sm font-medium">1-800-730-1717</span>
-                  </a>
-                  <button 
-                    onClick={() => scrollToSection('cash-offer-form')}
-                    className="w-full bg-white text-black py-2.5 rounded-xl font-medium text-sm"
-                  >
-                    Get Cash Offer
-                  </button>
-                </div>
+                {isScrolledPastHero && (
+                  <div className="pt-4 space-y-3 border-t border-white/20 mt-4">
+                    <a
+                      href="tel:1-800-730-1717"
+                      className="flex items-center space-x-2 text-black"
+                    >
+                      <Phone className="w-4 h-4" />
+                      <span className="text-sm font-medium">1-800-730-1717</span>
+                    </a>
+                    <button 
+                      onClick={() => scrollToSection('cash-offer-form')}
+                      className="w-full bg-white text-black py-2.5 rounded-xl font-medium text-sm"
+                    >
+                      Get Cash Offer
+                    </button>
+                  </div>
+                )}
               </nav>
             </motion.div>
           )}
