@@ -27,7 +27,7 @@ const steps = [
 export default function ProcessSection() {
   return (
     <section className="pt-12 pb-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
