@@ -19,7 +19,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-8">
-        <div className="text-center mt-20">
+        <div className="text-center mt-12 md:mt-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -59,13 +59,13 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
           >
             <a href="#cash-offer-form">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-black px-4 py-2.5 rounded-lg font-semibold text-xs hover:bg-gray-100 transition-colors shadow-lg min-h-[40px] w-[150px] flex items-center justify-center"
+                className="bg-white text-black px-6 py-3.5 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors shadow-lg min-h-[48px] w-[180px] flex items-center justify-center whitespace-nowrap"
               >
                 Get Your Cash Offer
               </motion.button>
@@ -74,9 +74,10 @@ export default function Hero() {
               href="tel:1-800-730-1717"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white/10 border border-white/20 text-white px-4 py-2.5 rounded-lg font-semibold text-xs hover:bg-white/20 transition-colors shadow-lg min-h-[40px] w-[150px] flex items-center justify-center space-x-1"
+              className="bg-white/10 border border-white/20 text-black px-6 py-3.5 rounded-lg font-semibold text-sm hover:bg-white/20 transition-colors shadow-lg min-h-[48px] w-[180px] flex items-center justify-center space-x-2 whitespace-nowrap"
+              style={{ backdropFilter: 'blur(15px)', WebkitBackdropFilter: 'blur(15px)' }}
             >
-              <Phone className="w-3 h-3" />
+              <Phone className="w-4 h-4" />
               <span>1-800-730-1717</span>
             </motion.a>
           </motion.div>
