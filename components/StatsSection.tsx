@@ -85,32 +85,32 @@ export default function StatsSection() {
             </div>
             
             {/* Top-left card - Properties Purchased - extends beyond image */}
-            <div className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-lg p-4 max-w-[200px] z-10">
-              <div className="flex items-center gap-2 mb-2">
+            <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 bg-white rounded-xl sm:rounded-2xl shadow-lg p-2 sm:p-3 md:p-4 max-w-[140px] sm:max-w-[160px] md:max-w-[200px] z-10">
+              <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-sm text-gray-600">Properties Purchased</span>
+                <span className="text-[10px] leading-tight sm:text-xs md:text-sm text-gray-600">Properties Purchased</span>
               </div>
-              <div className="text-2xl font-bold text-gray-900">
+              <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
                 1500+
               </div>
-              <div className="text-sm text-gray-500">Since 1988</div>
+              <div className="text-xs sm:text-sm text-gray-500">Since 1988</div>
             </div>
 
             {/* Bottom-right card - Average Closing Time - extends beyond image */}
-            <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg p-4 max-w-[200px] z-10">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-4 h-4 text-blue-500">
+            <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-white rounded-xl sm:rounded-2xl shadow-lg p-2 sm:p-3 md:p-4 max-w-[140px] sm:max-w-[160px] md:max-w-[200px] z-10">
+              <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500">
                   <svg viewBox="0 0 24 24" fill="currentColor">
                     <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
                     <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" fill="none"/>
                   </svg>
                 </div>
-                <span className="text-sm text-gray-600">Average Closing Time</span>
+                <span className="text-[10px] leading-tight sm:text-xs md:text-sm text-gray-600">Average Closing Time</span>
               </div>
-              <div className="text-2xl font-bold text-gray-900">
+              <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
                 14 Days
               </div>
-              <div className="text-sm text-gray-500">From offer to cash</div>
+              <div className="text-xs sm:text-sm text-gray-500">From offer to cash</div>
             </div>
           </motion.div>
 
@@ -129,20 +129,23 @@ export default function StatsSection() {
               </h2>
             </div>
 
-            <div className="flex gap-12 flex-wrap lg:flex-nowrap">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-8 lg:flex-nowrap lg:justify-start lg:gap-12"> {/* Added lg:flex-nowrap */}
               {/* Properties Purchased */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="text-left flex-shrink-0"
+                className="w-full sm:w-4/5 md:w-auto text-center lg:text-left
+                           p-4 sm:p-6 rounded-xl shadow-lg bg-slate-50
+                           md:p-0 md:shadow-none md:bg-transparent  // Revert card styles from md upwards if they go side-by-side cleanly
+                           lg:flex-shrink-0" // Ensure it shrinks on lg if needed. md:w-auto lets it take content width.
               >
-                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">
+                <div className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900 mb-1">
                   <AnimatedCounter target={1500} suffix="+" start={isInView} duration={2000} />
                 </div>
-                <h3 className="text-sm lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Properties Purchased</h3>
-                <p className="text-gray-600 text-xs leading-tight">Since 1988</p>
+                <h3 className="text-base sm:text-lg lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Properties Purchased</h3>
+                <p className="text-sm sm:text-base lg:text-xs text-gray-600 leading-tight">Since 1988</p>
               </motion.div>
 
               {/* Average Closing Time */}
@@ -151,13 +154,16 @@ export default function StatsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="text-left flex-shrink-0"
+                className="w-full sm:w-4/5 md:w-auto text-center lg:text-left
+                           p-4 sm:p-6 rounded-xl shadow-lg bg-slate-50
+                           md:p-0 md:shadow-none md:bg-transparent
+                           lg:flex-shrink-0"
               >
-                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">
+                <div className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900 mb-1">
                   <AnimatedCounter target={14} suffix=" Days" start={isInView} duration={2000} />
                 </div>
-                <h3 className="text-sm lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Average Closing Time</h3>
-                <p className="text-gray-600 text-xs leading-tight">From offer to cash</p>
+                <h3 className="text-base sm:text-lg lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Average Closing Time</h3>
+                <p className="text-sm sm:text-base lg:text-xs text-gray-600 leading-tight">From offer to cash</p>
               </motion.div>
 
               {/* Client Satisfaction */}
@@ -166,13 +172,16 @@ export default function StatsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
-                className="text-left flex-shrink-0"
+                className="w-full sm:w-4/5 md:w-auto text-center lg:text-left
+                           p-4 sm:p-6 rounded-xl shadow-lg bg-slate-50
+                           md:p-0 md:shadow-none md:bg-transparent
+                           lg:flex-shrink-0"
               >
-                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">
+                <div className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900 mb-1">
                   <AnimatedCounter target={98} suffix="%" start={isInView} duration={2000} />
                 </div>
-                <h3 className="text-sm lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Client Satisfaction</h3>
-                <p className="text-gray-600 text-xs leading-tight">Recommend our service</p>
+                <h3 className="text-base sm:text-lg lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Client Satisfaction</h3>
+                <p className="text-sm sm:text-base lg:text-xs text-gray-600 leading-tight">Recommend our service</p>
               </motion.div>
             </div>
           </motion.div>
