@@ -72,7 +72,7 @@ export default function StatsSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative lg:pr-8" // Added lg:pr-8 to push image left, balancing perceived space
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <Image
@@ -121,7 +121,7 @@ export default function StatsSection() {
             onViewportEnter={() => setIsInView(true)}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="space-y-8 lg:pl-8" // Added lg:pl-8 to push content right, balancing perceived space
+            className="space-y-8"
           >
             <div>
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
