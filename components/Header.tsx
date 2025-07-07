@@ -68,38 +68,38 @@ export default function Header() {
               <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center">
                 <span className="text-black font-bold text-xs">C</span>
               </div>
-              <span className={`font-semibold text-sm ${isScrolledPastHero ? 'text-black' : 'text-white'}`}>Cash for Properties</span>
+              <span className={`font-semibold text-sm transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white'}`}>Cash for Properties</span>
             </button>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-6">
               <button 
                 onClick={() => scrollToSection('home')}
-                className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm`}
+                className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
               >
                 HOME
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm`}
+                className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
               >
                 ABOUT
               </button>
               <button 
                 onClick={() => scrollToSection('how-it-works')}
-                className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm`}
+                className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
               >
                 HOW IT WORKS
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm`}
+                className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
               >
                 SERVICES
               </button>
               <button 
                 onClick={() => scrollToSection('contact-details-area')}
-                className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm`}
+                className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
               >
                 CONTACT
               </button>
@@ -109,7 +109,7 @@ export default function Header() {
             <div className="hidden md:flex items-center space-x-4">
               <a
                 href="tel:1-800-730-1717"
-                className={`flex items-center space-x-2 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors`}
+                className={`flex items-center space-x-2 transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white`}
               >
                 <Phone className="w-4 h-4" />
                 <span className="text-sm font-medium">1-800-730-1717</span>
@@ -130,9 +130,9 @@ export default function Header() {
               className="md:hidden p-2"
             >
               {isMenuOpen ? (
-                <X className={`w-6 h-6 ${isScrolledPastHero ? 'text-black' : 'text-white'}`} />
+                <X className={`w-6 h-6 transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white'}`} />
               ) : (
-                <Menu className={`w-6 h-6 ${isScrolledPastHero ? 'text-black' : 'text-white'}`} />
+                <Menu className={`w-6 h-6 transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white'}`} />
               )}
             </button>
           </div>
@@ -150,42 +150,42 @@ export default function Header() {
               <nav className="flex flex-col space-y-4">
                 <button 
                   onClick={() => scrollToSection('home')}
-                  className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm text-left`}
+                  className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm text-left`}
                 >
                   HOME
                 </button>
                 <button 
                   onClick={() => scrollToSection('about')}
-                  className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm text-left`}
+                  className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm text-left`}
                 >
                   ABOUT
                 </button>
                 <button 
                   onClick={() => scrollToSection('how-it-works')}
-                  className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm text-left`}
+                  className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm text-left`}
                 >
                   HOW IT WORKS
                 </button>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm text-left`}
+                  className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm text-left`}
                 >
                   SERVICES
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact-details-area')}
-                  className={`${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white transition-colors font-medium text-sm text-left`}
+                  className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm text-left`}
                 >
                   CONTACT
                 </button>
                 {isScrolledPastHero && (
-                  <div className="pt-4 space-y-3 border-t border-gray-200 mt-4">
+                  <div className="pt-4 space-y-3 mt-4">
                     <a
                       href="tel:1-800-730-1717"
-                      className="flex items-center space-x-2 text-gray-900"
+                      className="w-full bg-blue-600 text-white py-2.5 rounded-xl font-medium text-sm hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
                     >
                       <Phone className="w-4 h-4" />
-                      <span className="text-sm font-medium">1-800-730-1717</span>
+                      <span>1-800-730-1717</span>
                     </a>
                     <button 
                       onClick={() => scrollToSection('cash-offer-form')}
