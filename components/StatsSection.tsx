@@ -84,8 +84,8 @@ export default function StatsSection() {
               />
             </div>
             
-            {/* Top-left card - Properties Purchased - extends beyond image */}
-            <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 bg-white rounded-xl sm:rounded-2xl shadow-lg p-2 sm:p-3 md:p-4 max-w-[140px] sm:max-w-[160px] md:max-w-[200px] z-10">
+            {/* Top-left card - Properties Purchased - adjusted to be within bounds */}
+            <div className="absolute top-0 left-0 sm:top-1 sm:left-1 bg-white rounded-xl sm:rounded-2xl shadow-lg p-2 sm:p-3 md:p-4 max-w-[140px] sm:max-w-[160px] md:max-w-[200px] z-10">
               <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                 <span className="text-[10px] leading-tight sm:text-xs md:text-sm text-gray-600">Properties Purchased</span>
@@ -96,8 +96,8 @@ export default function StatsSection() {
               <div className="text-xs sm:text-sm text-gray-500">Since 1988</div>
             </div>
 
-            {/* Bottom-right card - Average Closing Time - extends beyond image */}
-            <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-white rounded-xl sm:rounded-2xl shadow-lg p-2 sm:p-3 md:p-4 max-w-[140px] sm:max-w-[160px] md:max-w-[200px] z-10">
+            {/* Bottom-right card - Average Closing Time - adjusted to be within bounds */}
+            <div className="absolute bottom-0 right-0 sm:bottom-1 sm:right-1 bg-white rounded-xl sm:rounded-2xl shadow-lg p-2 sm:p-3 md:p-4 max-w-[140px] sm:max-w-[160px] md:max-w-[200px] z-10">
               <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
                 <div className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500">
                   <svg viewBox="0 0 24 24" fill="currentColor">
