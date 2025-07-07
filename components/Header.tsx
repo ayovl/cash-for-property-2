@@ -51,7 +51,7 @@ export default function Header() {
         />
       )}
       <motion.header
-      id="main-header" // Added id here
+      id="main-header"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -182,14 +182,14 @@ export default function Header() {
                   <div className="pt-4 space-y-3 mt-4">
                     <a
                       href="tel:1-800-730-1717"
-                      className="w-full bg-blue-600 text-white py-2.5 rounded-xl font-medium text-sm hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
+                      className="w-full bg-transparent border border-white text-white py-2.5 rounded-xl font-medium text-sm hover:bg-white hover:text-black transition-colors flex items-center justify-center space-x-2"
                     >
                       <Phone className="w-4 h-4" />
                       <span>1-800-730-1717</span>
                     </a>
                     <button 
                       onClick={() => scrollToSection('cash-offer-form')}
-                      className="w-full bg-gray-900 text-white py-2.5 rounded-xl font-medium text-sm hover:bg-gray-800 transition-colors"
+                      className="w-full bg-black text-white py-2.5 rounded-xl font-medium text-sm hover:bg-gray-900 transition-colors"
                     >
                       Get Cash Offer
                     </button>
