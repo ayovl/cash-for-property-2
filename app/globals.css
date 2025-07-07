@@ -108,21 +108,23 @@ body[data-radix-scroll-locked='true'] > div > main { /* Targets the main element
 
 /* Ensure body itself doesn't show its own scrollbars when Radix adds padding
    and sets its own overflow:hidden. This is a defensive measure. */
+html[data-radix-scroll-locked='true'] body, /* Apply to body when html has the attribute */
 body[data-radix-scroll-locked='true'] {
   overflow: hidden !important;
-  position: relative; /* Needed for positioning the pseudo-element */
+  position: relative !important; /* Needed for positioning the pseudo-element, ensure it applies */
 }
 
-/* Style the scrollbar compensation area on desktop to be light grey */
+/* Style the scrollbar compensation area on desktop to be light grey - more forceful */
 @media (min-width: 768px) {
+  html[data-radix-scroll-locked='true'] body::after,
   body[data-radix-scroll-locked='true']::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 15px; /* Corresponds to the padding-right */
-    height: 100%;
-    background-color: #e5e7eb; /* Tailwind gray-200 */
-    z-index: 9998; /* Below typical modal z-index (e.g., 9999 for Radix popovers) but above page content */
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important; /* Ensure it's pinned to the right */
+    width: 15px !important; /* Corresponds to the padding-right */
+    height: 100% !important;
+    background-color: #e5e7eb !important; /* Tailwind gray-200 */
+    z-index: 9998 !important; /* Below typical modal z-index but above page content */
   }
 }
