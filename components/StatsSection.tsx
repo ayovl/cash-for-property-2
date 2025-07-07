@@ -171,7 +171,7 @@ export default function StatsSection() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                viewport={{ once.true }}
+                viewport={{ once: true }}
                 className="w-full sm:w-4/5 md:w-auto text-center lg:text-left
                            p-4 sm:p-6 rounded-xl shadow-lg bg-slate-50
                            md:p-0 md:shadow-none md:bg-transparent
