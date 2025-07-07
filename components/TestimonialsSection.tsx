@@ -31,7 +31,7 @@ export default function TestimonialsSection() {
       }}
     >
       {/* Overlay div - desktop only white overlay, no blur */}
-      <div className="absolute inset-0 md:bg-white/20"></div>
+      <div className="absolute inset-0 md:bg-white/50"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
