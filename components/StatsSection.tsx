@@ -129,20 +129,20 @@ export default function StatsSection() {
               </h2>
             </div>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-8 sm:gap-12 lg:flex-nowrap">
+            <div className="flex justify-around lg:justify-start items-start gap-4 sm:gap-6 md:gap-8 lg:gap-12"> {/* Removed flex-wrap, added items-start, adjusted justify and gap */}
               {/* Properties Purchased */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="text-center lg:text-left flex-shrink-0 w-full sm:w-auto"
+                className="text-center flex-1 min-w-0" // Added flex-1 and min-w-0 for better distribution, lg:text-left removed to keep centered on all sizes unless specified otherwise by parent
               >
-                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-0 sm:mb-1"> {/* Reduced font size, reduced mb */}
                   <AnimatedCounter target={1500} suffix="+" start={isInView} duration={2000} />
                 </div>
-                <h3 className="text-sm lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Properties Purchased</h3>
-                <p className="text-gray-600 text-xs leading-tight">Since 1988</p>
+                <h3 className="text-[11px] sm:text-xs lg:text-base font-semibold text-gray-900 mb-0 leading-tight">Properties Purchased</h3> {/* Reduced font size, reduced mb */}
+                <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">Since 1988</p> {/* Reduced font size */}
               </motion.div>
 
               {/* Average Closing Time */}
@@ -151,13 +151,13 @@ export default function StatsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="text-center lg:text-left flex-shrink-0 w-full sm:w-auto"
+                className="text-center flex-1 min-w-0" // Added flex-1 and min-w-0
               >
-                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-0 sm:mb-1"> {/* Reduced font size, reduced mb */}
                   <AnimatedCounter target={14} suffix=" Days" start={isInView} duration={2000} />
                 </div>
-                <h3 className="text-sm lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Average Closing Time</h3>
-                <p className="text-gray-600 text-xs leading-tight">From offer to cash</p>
+                <h3 className="text-[11px] sm:text-xs lg:text-base font-semibold text-gray-900 mb-0 leading-tight">Average Closing Time</h3> {/* Reduced font size, reduced mb */}
+                <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">From offer to cash</p> {/* Reduced font size */}
               </motion.div>
 
               {/* Client Satisfaction */}
@@ -166,13 +166,13 @@ export default function StatsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
-                className="text-center lg:text-left flex-shrink-0 w-full sm:w-auto"
+                className="text-center flex-1 min-w-0" // Added flex-1 and min-w-0
               >
-                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-0 sm:mb-1"> {/* Reduced font size, reduced mb */}
                   <AnimatedCounter target={98} suffix="%" start={isInView} duration={2000} />
                 </div>
-                <h3 className="text-sm lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Client Satisfaction</h3>
-                <p className="text-gray-600 text-xs leading-tight">Recommend our service</p>
+                <h3 className="text-[11px] sm:text-xs lg:text-base font-semibold text-gray-900 mb-0 leading-tight">Client Satisfaction</h3> {/* Reduced font size, reduced mb */}
+                <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">Recommend our service</p> {/* Reduced font size */}
               </motion.div>
             </div>
           </motion.div>
