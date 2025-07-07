@@ -15,7 +15,7 @@ export default function Footer() {
     >
       <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-gray-100/50 to-white/60"></div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16">
         <div className="glass bg-white/20 border border-white/30 rounded-3xl p-12 shadow-2xl">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Company Info */}
