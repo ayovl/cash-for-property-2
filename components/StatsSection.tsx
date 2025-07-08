@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 
 const statsData = [
@@ -15,14 +15,40 @@ interface AnimatedCounterProps {
   target: number;
   suffix?: string;
   duration?: number;
-  start: boolean;
 }
 
-function AnimatedCounter({ target, suffix = '', duration = 2000, start }: AnimatedCounterProps) {
+function AnimatedCounter({ target, suffix = '', duration = 2000 }: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
+  const [startAnimation, setStartAnimation] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (!start) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartAnimation(true);
+          observer.disconnect(); // Optional: stop observing after animation starts
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the element is visible
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!startAnimation) {
       return;
     }
 
@@ -34,7 +60,7 @@ function AnimatedCounter({ target, suffix = '', duration = 2000, start }: Animat
     let startTime: number | null = null;
     let animationFrame: number;
 
-    setCount(0);
+    setCount(0); // Reset count when animation starts
 
     const animate = (timestamp: number) => {
       if (startTime === null) {
@@ -54,13 +80,13 @@ function AnimatedCounter({ target, suffix = '', duration = 2000, start }: Animat
     return () => {
       cancelAnimationFrame(animationFrame);
     };
-  }, [target, duration, start]);
+  }, [target, duration, startAnimation]);
 
-  return <span>{count}{suffix}</span>;
+  return <span ref={ref}>{count}{suffix}</span>;
 }
 
 export default function StatsSection() {
-  const [isInView, setIsInView] = useState(false);
+  // const [isInView, setIsInView] = useState(false); // No longer needed for individual counters
 
   return (
     <section className="pt-16 pb-24 bg-white">
@@ -118,7 +144,7 @@ export default function StatsSection() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            onViewportEnter={() => setIsInView(true)}
+            // onViewportEnter={() => setIsInView(true)} // No longer needed
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
             className="space-y-8"
@@ -139,7 +165,7 @@ export default function StatsSection() {
                 className="w-full max-w-xs text-center lg:text-left p-4 sm:p-6 rounded-xl shadow-lg bg-slate-50 md:p-4 md:shadow-lg md:bg-slate-50 lg:p-0 lg:shadow-none lg:bg-transparent"
               >
                 <div className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900 mb-1">
-                  <AnimatedCounter target={1500} suffix="+" start={isInView} duration={2000} />
+                  <AnimatedCounter target={1500} suffix="+" duration={2000} />
                 </div>
                 <h3 className="text-base sm:text-lg lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Properties Purchased</h3>
                 <p className="text-sm sm:text-base lg:text-xs text-gray-600 leading-tight">Since 1988</p>
@@ -154,7 +180,7 @@ export default function StatsSection() {
                 className="w-full max-w-xs text-center lg:text-left p-4 sm:p-6 rounded-xl shadow-lg bg-slate-50 md:p-4 md:shadow-lg md:bg-slate-50 lg:p-0 lg:shadow-none lg:bg-transparent"
               >
                 <div className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900 mb-1">
-                  <AnimatedCounter target={14} suffix=" Days" start={isInView} duration={2000} />
+                  <AnimatedCounter target={14} suffix=" Days" duration={2000} />
                 </div>
                 <h3 className="text-base sm:text-lg lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Average Closing Time</h3>
                 <p className="text-sm sm:text-base lg:text-xs text-gray-600 leading-tight">From offer to cash</p>
@@ -169,7 +195,7 @@ export default function StatsSection() {
                 className="w-full max-w-xs text-center lg:text-left p-4 sm:p-6 rounded-xl shadow-lg bg-slate-50 md:p-4 md:shadow-lg md:bg-slate-50 lg:p-0 lg:shadow-none lg:bg-transparent sm:col-span-2 sm:justify-self-center lg:col-span-1 lg:justify-self-start"
               >
                 <div className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900 mb-1">
-                  <AnimatedCounter target={98} suffix="%" start={isInView} duration={2000} />
+                  <AnimatedCounter target={98} suffix="%" duration={2000} />
                 </div>
                 <h3 className="text-base sm:text-lg lg:text-base font-semibold text-gray-900 mb-1 leading-tight">Client Satisfaction</h3>
                 <p className="text-sm sm:text-base lg:text-xs text-gray-600 leading-tight">Recommend our service</p>
