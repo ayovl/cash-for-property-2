@@ -52,9 +52,9 @@ export default function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="relative group"
+              className="relative group h-full"
             >
-              <div className="glass bg-gray-50/80 border border-gray-200/50 rounded-3xl p-8 text-left hover:shadow-xl transition-all duration-300 group-hover:bg-white/90">
+              <div className="glass bg-gray-50/80 border border-gray-200/50 rounded-3xl p-8 text-left hover:shadow-xl transition-all duration-300 group-hover:bg-white/90 h-full flex flex-col">
                 <div className="flex items-start justify-between mb-6">
                   <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <step.icon className="w-8 h-8 text-white" />
@@ -64,8 +64,8 @@ export default function ProcessSection() {
                   </span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed mb-6">{step.description}</p>
-                <button className="text-gray-900 font-semibold hover:text-gray-700 transition-colors group flex items-center space-x-2">
+                <p className="text-gray-600 leading-relaxed mb-6 flex-grow">{step.description}</p>
+                <button className="text-gray-900 font-semibold hover:text-gray-700 transition-colors group flex items-center space-x-2 mt-auto">
                   <span>More info</span>
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </button>
