@@ -1,34 +1,38 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
 
+  const handleScroll = useCallback(() => {
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection) {
+      const heroSectionBottom = heroSection.offsetHeight;
+      setIsScrolledPastHero(window.scrollY > heroSectionBottom);
+    }
+  }, []);
+
   useEffect(() => {
-    const handleScroll = () => {
-      const heroSection = document.getElementById('hero-section');
-      if (heroSection) {
-        const heroSectionBottom = heroSection.offsetHeight;
-        if (window.scrollY > heroSectionBottom) {
-          setIsScrolledPastHero(true);
-        } else {
-          setIsScrolledPastHero(false);
-        }
-      }
+    let timeoutId: NodeJS.Timeout;
+    
+    const throttledScroll = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(handleScroll, 16); // ~60fps
     };
 
-    window.addEventListener('scroll', handleScroll);
-    // Initial check in case the page loads already scrolled
-    handleScroll();
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+    handleScroll(); // Initial check
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', throttledScroll);
+      clearTimeout(timeoutId);
     };
-  }, []);
+  }, [handleScroll]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

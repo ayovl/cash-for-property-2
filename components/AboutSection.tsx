@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button'; // Added Button import
+import { Button } from '@/components/ui/button';
+import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
 
 const stats = [
 	{ number: 35, suffix: '+', label: 'Years of Experience', sublabel: 'Since 1988' },
@@ -21,29 +21,8 @@ function AnimatedCounter({
 	suffix?: string;
 	duration?: number;
 }) {
-	const [count, setCount] = useState(0);
-
-	useEffect(() => {
-		let startTime: number;
-		let animationFrame: number;
-
-		const animate = (timestamp: number) => {
-			if (!startTime) startTime = timestamp;
-			const progress = Math.min((timestamp - startTime) / duration, 1);
-
-			setCount(Math.floor(progress * target));
-
-			if (progress < 1) {
-				animationFrame = requestAnimationFrame(animate);
-			}
-		};
-
-		animationFrame = requestAnimationFrame(animate);
-
-		return () => cancelAnimationFrame(animationFrame);
-	}, [target, duration]);
-
-	return <span>{count}{suffix}</span>;
+	const { count, ref } = useAnimatedCounter({ target, duration });
+	return <span ref={ref}>{count}{suffix}</span>;
 }
 
 export default function AboutSection() {

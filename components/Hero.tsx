@@ -2,24 +2,29 @@
 
 import { motion } from 'framer-motion';
 import { Building2, Phone } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 
 export default function Hero() {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
+  const handleImageLoad = useCallback(() => {
+    setIsImageLoaded(true);
+  }, []);
+
   useEffect(() => {
-    const img = new Image();
-    img.src = '/hero.png';
-    img.onload = () => {
-      setIsImageLoaded(true);
+    // Preload hero image
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.href = '/hero.png';
+    link.as = 'image';
+    document.head.appendChild(link);
+
+    return () => {
+      if (document.head.contains(link)) {
+        document.head.removeChild(link);
+      }
     };
-    // Optional: handle image loading errors
-    // img.onerror = () => {
-    //   console.error("Hero image failed to load.");
-    //   // Potentially set isImageLoaded to true anyway to reveal content,
-    //   // or handle error differently
-    //   setIsImageLoaded(true);
-    // };
   }, []);
 
   const imageVariants = {
@@ -33,15 +38,19 @@ export default function Hero() {
       <motion.div
         variants={imageVariants}
         initial="hidden"
-        animate={isImageLoaded ? 'visible' : 'hidden'}
+        animate="visible"
         className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: 'url("/hero.png")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
       >
-        <div className="absolute inset-0"></div>
+        <Image
+          src="/hero.png"
+          alt="NYC Property Background"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+          onLoad={handleImageLoad}
+          quality={85}
+        />
       </motion.div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-10 lg:px-24 pt-16 pb-8">
