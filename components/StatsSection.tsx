@@ -111,32 +111,32 @@ export default function StatsSection() {
             </div>
             
             {/* Top-left card - Properties Purchased - extends beyond image */}
-            <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 bg-white rounded-xl sm:rounded-2xl shadow-lg p-2 sm:p-3 md:p-4 max-w-[140px] sm:max-w-[160px] md:max-w-[200px] z-10">
-              <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
+            <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 z-10 max-w-[150px] rounded-xl bg-white/90 p-3 shadow-lg shadow-black/10 drop-shadow-lg backdrop-blur-sm sm:max-w-[160px] sm:rounded-2xl md:max-w-[200px] md:p-4" style={{ boxShadow: '0 -10px 25px -5px rgba(0, 0, 0, 0.07), 0 -4px 6px -2px rgba(0, 0, 0, 0.03), 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)' }}>
+              <div className="mb-2 flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-[10px] leading-tight sm:text-xs md:text-sm text-gray-600">Properties Purchased</span>
+                <span className="text-xs font-medium leading-tight text-gray-600 md:text-sm">Properties Purchased</span>
               </div>
-              <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
+              <div className="text-xl font-bold text-gray-900 md:text-2xl">
                 1500+
               </div>
-              <div className="text-xs sm:text-sm text-gray-500">Since 1988</div>
+              <div className="text-xs text-gray-500 md:text-sm">Since 1988</div>
             </div>
 
             {/* Bottom-right card - Average Closing Time - extends beyond image */}
-            <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-white rounded-xl sm:rounded-2xl shadow-lg p-2 sm:p-3 md:p-4 max-w-[140px] sm:max-w-[160px] md:max-w-[200px] z-10">
-              <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
-                <div className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500">
+            <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 z-10 max-w-[150px] rounded-xl bg-white/90 p-3 shadow-lg backdrop-blur-sm sm:max-w-[160px] sm:rounded-2xl md:max-w-[200px] md:p-4">
+              <div className="mb-2 flex items-center gap-2">
+                <div className="h-4 w-4 text-blue-500">
                   <svg viewBox="0 0 24 24" fill="currentColor">
                     <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
                     <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" fill="none"/>
                   </svg>
                 </div>
-                <span className="text-[10px] leading-tight sm:text-xs md:text-sm text-gray-600">Average Closing Time</span>
+                <span className="text-xs font-medium leading-tight text-gray-600 md:text-sm">Average Closing Time</span>
               </div>
-              <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
+              <div className="text-xl font-bold text-gray-900 md:text-2xl">
                 14 Days
               </div>
-              <div className="text-xs sm:text-sm text-gray-500">From offer to cash</div>
+              <div className="text-xs text-gray-500 md:text-sm">From offer to cash</div>
             </div>
           </motion.div>
 
