@@ -25,14 +25,11 @@ export default function TestimonialsSection() {
   return (    <section
       className="pt-12 pb-24 relative overflow-hidden"
       style={{
-        backgroundImage: 'url("https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
+        backgroundImage: 'url("https://images.unsplash.com/photo-1747768079954-6d8bf5283e07?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      {/* Overlay div - 50% white overlay for all screen sizes, no blur */}
-      <div className="absolute inset-0 bg-white/50"></div>
-      
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -41,8 +38,8 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <span className="text-sm font-medium text-gray-700 mb-4 block">• Testimonials</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 max-w-4xl mx-auto leading-tight">
+          <span className="text-sm font-medium text-black mb-4 block">• Testimonials</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4 max-w-4xl mx-auto leading-tight">
             What Our Clients Say
           </h2>
           <p className="text-xl text-black max-w-3xl mx-auto font-medium">
