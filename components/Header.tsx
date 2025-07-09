@@ -63,48 +63,56 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto">
         {/* The inner px-4 on the glass div is kept to maintain its appearance relative to the new outer padding */}
-        <div className="glass bg-white/10 border border-white/20 rounded-xl px-4 py-2 shadow-xl">
+        <div className={`glass rounded-xl px-4 py-2 shadow-xl transition-all duration-500 ease-out ${isScrolledPastHero ? 'bg-white/90 border-white/30' : 'bg-white/10 border-white/20'}`}>
           <div className="flex items-center justify-between">
             {/* Logo */}
             <button 
               onClick={() => scrollToSection('home')}
               className="flex items-center space-x-2"
             >
-              <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-black font-bold text-xs">C</span>
+              <div className="w-10 h-10 flex items-center justify-center p-1">
+                <Image 
+                  src="/logo.png" 
+                  alt="Cash for Properties Logo" 
+                  width={30} 
+                  height={30} 
+                  className={`object-contain transition-all duration-500 ease-out ${isScrolledPastHero ? '' : 'invert brightness-0 filter'}`}
+                  key="logo-v5"
+                  priority
+                />
               </div>
-              <span className={`font-semibold text-sm transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white'}`}>Cash for Properties</span>
+              <span className={`md:hidden font-semibold text-sm transition-colors duration-500 ease-out ${isScrolledPastHero ? 'text-black' : 'text-white'}`}>Cash for Properties</span>
             </button>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-6">
               <button 
                 onClick={() => scrollToSection('home')}
-                className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
+                className={`transition-colors duration-500 ease-out ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
               >
                 HOME
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
+                className={`transition-colors duration-500 ease-out ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
               >
                 ABOUT
               </button>
               <button 
                 onClick={() => scrollToSection('how-it-works')}
-                className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
+                className={`transition-colors duration-500 ease-out ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
               >
                 HOW IT WORKS
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
+                className={`transition-colors duration-500 ease-out ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
               >
                 SERVICES
               </button>
               <button 
                 onClick={() => scrollToSection('contact-details-area')}
-                className={`transition-colors duration-300 ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
+                className={`transition-colors duration-500 ease-out ${isScrolledPastHero ? 'text-black' : 'text-white/90'} hover:text-white font-medium text-sm`}
               >
                 CONTACT
               </button>
@@ -123,7 +131,7 @@ export default function Header() {
                 onClick={() => scrollToSection('cash-offer-form')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-6 py-2.5 rounded-xl transition-colors font-medium text-sm ${isScrolledPastHero ? 'bg-black text-white hover:bg-gray-800' : 'bg-white text-black hover:bg-gray-100'}`}
+                className={`px-6 py-2.5 rounded-xl transition-colors duration-500 ease-out font-medium text-sm ${isScrolledPastHero ? 'bg-black text-white hover:bg-gray-800' : 'bg-white text-black hover:bg-gray-100'}`}
               >
                 Get Cash Offer
               </motion.button>
