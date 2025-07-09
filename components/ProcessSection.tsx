@@ -40,7 +40,7 @@ export default function ProcessSection() {
             Simple 3-Step Process
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-            We've streamlined the property selling process to make it fast and hassle-free.
+            We&apos;ve streamlined the property selling process to make it fast and hassle-free.
           </p>
         </motion.div>
 

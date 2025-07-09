@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
 
@@ -43,25 +44,28 @@ export default function AboutSection() {
 					</h2>
 
 					<div className="flex justify-center space-x-4 mt-12">
-						<div className="w-32 h-20 bg-white rounded-2xl overflow-hidden">
-							<img
+						<div className="w-32 h-20 bg-white rounded-2xl overflow-hidden relative">
+							<Image
 								src="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
 								alt="NYC Property"
-								className="w-full h-full object-cover"
+								fill
+								className="object-cover"
 							/>
 						</div>
-						<div className="w-32 h-20 bg-white rounded-2xl overflow-hidden">
-							<img
+						<div className="w-32 h-20 bg-white rounded-2xl overflow-hidden relative">
+							<Image
 								src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
 								alt="NYC Building"
-								className="w-full h-full object-cover"
+								fill
+								className="object-cover"
 							/>
 						</div>
-						<div className="w-32 h-20 bg-white rounded-2xl overflow-hidden">
-							<img
+						<div className="w-32 h-20 bg-white rounded-2xl overflow-hidden relative">
+							<Image
 								src="https://images.pexels.com/photos/378570/pexels-photo-378570.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
 								alt="NYC Skyline"
-								className="w-full h-full object-cover"
+								fill
+								className="object-cover"
 							/>
 						</div>
 					</div>

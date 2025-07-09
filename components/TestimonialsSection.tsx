@@ -25,11 +25,12 @@ export default function TestimonialsSection() {
   return (    <section
       className="pt-12 pb-24 relative overflow-hidden"
       style={{
-        backgroundImage: 'url("https://images.unsplash.com/photo-1747768079954-6d8bf5283e07?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
+        backgroundImage: 'url("https://images.unsplash.com/photo-1668508886518-60008d394c51?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
+      <div className="absolute inset-0 bg-white/75 z-0"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -43,7 +44,7 @@ export default function TestimonialsSection() {
             What Our Clients Say
           </h2>
           <p className="text-xl text-black max-w-3xl mx-auto font-medium">
-            Don't just take our word for it - hear from property owners we've helped throughout NYC.
+            Don&apos;t just take our word for it - hear from property owners we&apos;ve helped throughout NYC.
           </p>
         </motion.div>
 
@@ -63,7 +64,7 @@ export default function TestimonialsSection() {
                 ))}
               </div>
               <blockquote className="text-gray-700 leading-relaxed mb-6 font-light">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
               <div>
                 <div className="font-semibold text-gray-900">{testimonial.author}</div>
