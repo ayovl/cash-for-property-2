@@ -63,7 +63,7 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto">
         {/* The inner px-4 on the glass div is kept to maintain its appearance relative to the new outer padding */}
-        <div className={`glass rounded-xl px-4 py-2 shadow-xl transition-all duration-500 ease-out ${isScrolledPastHero ? 'bg-white/90 border-white/30' : 'bg-white/10 border-white/20'}`}>
+        <div className={`glass rounded-xl px-4 py-2 shadow-xl transition-all duration-500 ease-out bg-white/10 border-white/20`}>
           <div className="flex items-center justify-between">
             {/* Logo */}
             <button 
@@ -81,7 +81,7 @@ export default function Header() {
                   priority
                 />
               </div>
-              <span className={`md:hidden font-semibold text-sm transition-colors duration-500 ease-out ${isScrolledPastHero ? 'text-black' : 'text-white'}`}>Cash for Properties</span>
+              <span className={`md:hidden font-semibold text-sm transition-colors duration-300 ease-out ${isScrolledPastHero ? 'text-black' : 'text-white'}`}>Cash for Properties</span>
             </button>
 
             {/* Desktop Navigation */}
